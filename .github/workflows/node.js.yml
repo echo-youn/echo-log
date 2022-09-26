@@ -43,4 +43,6 @@ jobs:
         uses: actions/deploy-pages@v1.2.0
 permissions:
   id-token: write
+  pages: write
+  contents: read
         
