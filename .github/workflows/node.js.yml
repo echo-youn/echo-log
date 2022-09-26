@@ -25,12 +25,12 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'yarn'
-        destination: ./_site
-        source: ./
     - run: yarn install
     - run: yarn docs:build
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v1
+      with:
+        path: docs/.vitepress
   deploy:
     environment:
       name: github-pages
