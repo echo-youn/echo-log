@@ -1,7 +1,7 @@
 {
   "name": "echo-log",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "index.ts",
   "author": "echo-youn",
   "license": "MIT",
   "scripts": {
