@@ -1,12 +1,11 @@
-import { defineConfigWithTheme } from 'vitepress'
-import fs from 'fs'
+import { defineConfig } from 'vitepress'
 
 /**
  * This is for base url.
  */
 const GITHUB_BASE_REPOSITORY_NAME = '/echo-log/'
 
-const config = defineConfigWithTheme({
+const config = defineConfig({
     title: 'VitePress',
     description: 'Play Aroung',
     base: GITHUB_BASE_REPOSITORY_NAME,
@@ -39,16 +38,38 @@ const config = defineConfigWithTheme({
                 collapsed: true
             }
         ],
-        setTitle: 'My Custom Title',
+        siteTitle: 'Echo Youn',
         logo: '/favicon.png',
         nav: [
             { text: 'Home', link: '/' }
         ],
+        socialLinks: [
+            { icon: 'github', link: 'https://github.com/vuejs/vitepress' },
+            { icon: 'twitter', link: '...' },
+            // You can also add custom icons by passing SVG as string:
+            {
+              icon: {
+                svg: '<svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Dribbble</title><path d="M12...6.38z"/></svg>'
+              },
+              link: '...'
+            }
+        ],
+        editLink: {
+            pattern: 'https://github.com/echo-youn/echo-log/edit/main/docs/:path',
+            text: 'Edit this page on GitHub'
+        },
+        lastUpdatedText: 'Updated Date',
         footer: {
             message: 'Hi',
             copyright: 'No Copy right'
+        },
+        algolia: {
+            appId: '',
+            apiKey: '',
+            indexName: 'vitepress'
         }
-    }
+    },
+    lastUpdated: true
 })
 
 export default config

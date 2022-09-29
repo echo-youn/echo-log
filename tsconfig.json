@@ -1,4 +1,7 @@
 { // Json For test
+    "compilerOptions": {
+        "jsx": "preserve"
+    },
     "include": [
         "docs/.vitepress/theme/**/*",
         "docs/.vitepress/**/*"
