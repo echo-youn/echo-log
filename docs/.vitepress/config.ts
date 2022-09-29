@@ -28,10 +28,19 @@ const config = defineConfigWithTheme({
                 ],
                 collapsible: true,
                 collapsed: true
+            },
+            {
+                text: 'AWS',
+                items: [
+                    { text: 'AWS TO AWS', link : '/aws/' }, // End with slash for bind with index of directory.
+                    { text: 'AWS ASSO', link: '/aws/solution-architect-associate/' }
+                ],
+                collapsible: true,
+                collapsed: true
             }
         ],
         setTitle: 'My Custom Title',
-        logo: '/image.png',
+        logo: '/favicon.png',
         nav: [
             { text: 'Home', link: '/' }
         ],
