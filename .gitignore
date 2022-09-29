@@ -1,5 +1,0 @@
-#node modules
-node_modules
-
-# vite press build output
-docs/.vitepress/dist/
