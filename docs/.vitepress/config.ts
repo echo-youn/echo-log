@@ -1,9 +1,14 @@
-import { defineConfig } from 'vitepress'
+import { defineConfigWithTheme } from 'vitepress'
 
-const config = defineConfig({
+/**
+ * This is for base url.
+ */
+const GITHUB_BASE_REPOSITORY_NAME = '/echo-log/'
+
+const config = defineConfigWithTheme({
     title: 'VitePress',
     description: 'Play Aroung',
-    base: '/echo-log/',
+    base: GITHUB_BASE_REPOSITORY_NAME,
     themeConfig: {
         sidebar: [
             {
