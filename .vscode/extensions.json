@@ -1,6 +1,8 @@
 {
     "recommendations": [
         "esbenp.prettier-vscode",
-        "yzhang.markdown-all-in-one"
+        "yzhang.markdown-all-in-one",
+        "antfu.vite",
+        "octref.vetur"
     ]
 }
