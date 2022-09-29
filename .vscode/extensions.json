@@ -4,6 +4,8 @@
         "yzhang.markdown-all-in-one",
         "antfu.vite",
         "octref.vetur",
-        "Vue.volar"
+        "vue.volar",
+        "github.copilot",
+        "GitHub.github-vscode-theme"
     ]
 }
