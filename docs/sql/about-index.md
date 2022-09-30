@@ -15,3 +15,5 @@ SELECT *
 FROM table
 WHERE index_column != 'abc' AND sub_index > '2022-01-01' AND another_index = 'zzz';
 ```
+
+
