@@ -19,6 +19,15 @@ const config = defineConfigWithTheme({
                 ],
                 collapsible: true,
                 collapsed: true
+            },
+            {
+                text: 'sql',
+                items: [
+                    { text: 'Index', link: '/sql/' },
+                    { text: 'About Index', link: '/sql/about-index' }
+                ],
+                collapsible: true,
+                collapsed: true
             }
         ],
         setTitle: 'My Custom Title',
