@@ -1,3 +1,4 @@
+// @ts-ignore
 import Layout from './Layout.vue'
 
 export default {
