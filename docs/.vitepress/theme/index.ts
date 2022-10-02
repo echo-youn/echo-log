@@ -1,9 +1,7 @@
-import DefaultTheme from 'vitepress/theme'
+// @ts-ignore
+import Layout from './Layout.vue'
 
 export default {
-  ...DefaultTheme,
-  enhanceApp({ app }) {
-    // register global components
-    app.component('MyGlobalComponent', /* ... */)
-  }
+  Layout: Layout,
+  NotFound: () => 'custom 404'
 }
