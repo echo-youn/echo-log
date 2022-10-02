@@ -1,4 +1,5 @@
 import { defineConfigWithTheme } from 'vitepress'
+import fs from 'fs'
 
 /**
  * This is for base url.
