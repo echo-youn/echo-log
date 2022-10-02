@@ -5,11 +5,12 @@
   "author": "echo-youn",
   "license": "MIT",
   "scripts": {
-    "docs:dev": "vitepress dev docs",
+    "docs:dev": "vitepress dev docs --host",
     "docs:build": "vitepress build docs",
     "docs:serve": "vitepress serve docs"
   },
   "devDependencies": {
+    "typescript": "^4.8.4",
     "vitepress": "^1.0.0-alpha.16",
     "vue": "^3.2.39"
   },
