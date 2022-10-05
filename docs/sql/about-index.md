@@ -1,6 +1,9 @@
 # Index!
 
 ## 상황
+Mysql의 인덱스에 대해서 알아봅시다~!
+
+## 
 
 ```sql
 SELECT *
