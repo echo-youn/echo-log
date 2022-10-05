@@ -198,7 +198,7 @@ id|select_type|table     |partitions|type  |possible_keys|key|key_len|ref|rows|f
   캐시될 수 없는 서브쿼리 중 두번째 혹은 그 이후의 유니언
 
 
-# table
+## table
 쿼리가 참조하는 테이블의 이름 또는 아래의 경우
 
 - **\<union M,N\>**
@@ -213,6 +213,6 @@ id|select_type|table     |partitions|type  |possible_keys|key|key_len|ref|rows|f
   
   구체화된 서브쿼리 N 의 id
 
-# partitions
+## partitions
 
 파티션 된 테이블일 경우 파티션 명
