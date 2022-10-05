@@ -34,6 +34,15 @@ const config = defineConfig({
                 ],
                 collapsible: true,
                 collapsed: true
+            },
+            {
+                text: 'AWS',
+                items: [
+                    { text: 'Index', link: '/aws/' },
+                    { text: 'Resources', link: '/aws/resources/' }
+                ],
+                collapsible: true,
+                collapsed: true
             }
         ],
         logo: '/favicon.png',
