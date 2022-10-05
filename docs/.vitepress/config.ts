@@ -28,7 +28,9 @@ const config = defineConfig({
                 text: 'sql',
                 items: [
                     { text: 'Index', link: '/sql/' },
-                    { text: 'About Index', link: '/sql/about-index' }
+                    { text: 'About Index', link: '/sql/about-index' },
+                    { text: 'Explain #1', link: '/sql/mysql-explain-01' },
+                    { text: 'Explain #2', link: '/sql/mysql-explain-02' }
                 ],
                 collapsible: true,
                 collapsed: true
