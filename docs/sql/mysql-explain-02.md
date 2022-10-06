@@ -45,9 +45,7 @@ DESC SELECT 1;
 ## type
 `type` 컬럼은 테이블들이 어떻게 조인되어 있는지 설명해 주는 컬럼이다. 우선 조인 타입들의 Best 부터 Worst까지 나열한 뒤 각각 항목에 대해 살펴본다.
 
-<div class="no-wrap">
 system > const > eq_ref > ref > fulltext > ref_or_null > index_merge > unique_subquery > index_subquery > range > index > ALL
-</div>
 
 - system
   
@@ -146,4 +144,3 @@ MySQL이 쿼리를 실행하기 위해 검사해야 한다고 생각하는 행�
 
   다음 테이블과 정확히 일치하거나 클라이언트에 보낼 행을 제한하는데 사용됩니다. `type`이 ALL 또는 index인 경우 Extra가 Using where가 아니라면, 문제가 될 수 있습니다.
 
-  
