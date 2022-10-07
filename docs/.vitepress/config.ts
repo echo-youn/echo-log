@@ -49,6 +49,10 @@ const config = defineConfig({
         nav: [
             { text: 'Home', link: '/' }
         ],
+        docFooter: {
+            prev: '이전 페이지',
+            next: '다음 페이지'
+        },
         footer: {
             message: 'Hi',
             copyright: 'No Copy right'
