@@ -7,3 +7,5 @@
 [S3 Versioning and Lock](/aws/solution-architect-associate/s3-version-and-lock)
 
 [Cloud Watch Default Metric](/aws/solution-architect-associate/cloudwatch-default-metric)
+
+[Key Management Service](/aws/solution-architect-associate/key-management-service)
