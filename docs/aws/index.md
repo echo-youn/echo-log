@@ -9,3 +9,6 @@
 [Cloud Watch Default Metric](/aws/solution-architect-associate/cloudwatch-default-metric)
 
 [Key Management Service](/aws/solution-architect-associate/key-management-service)
+
+[Auto Scaling Group](/aws/solution-architect-associate/auto-scailing-group)
+
