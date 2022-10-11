@@ -6,6 +6,8 @@
 
 ## Key Management Service
 
+<img width="826" alt="지문" src="https://user-images.githubusercontent.com/39899731/194975335-39c55b50-5ac3-4c7c-9f1f-a90eb3522ee5.png">
+
 AWS `Key Management Service`는 데이터를 보호하는데 사용하는 암호화 키를 쉽게 생성하고 제어할 수 있게 해주는 관리형 서비스다. AWS KMS는 FIPS 140-2 암호화 모듈 검증 프로그램에 따라 하드웨어 보안 모듈(HSM)을 사용하여 AWS KMS keys를 보호하고 검증한다. 
 
 중국은 KMS 키를 보호하는데 사용하는 HSM은 모든 중국 규정을 준수 하나, FIPS 140-2 암호화 모듈 검증 프로그램에 따른 검증은 받지 않는다.
@@ -26,7 +28,5 @@ AWS KMS는 지정된 Amazon S3 버킷에 로그 파일을 전달하는 서비스
 
 AWS KMS의 AWS CloudHSM의 `custom key store`에 저장되는 `CMK`를 만든다. 사용자의 vpc에서 관리되는 `Custom Key Store`과 CloudHSM를 통해 자료들을 암호화하고 검증한다.
 
-
-
-
+![KMS & CloudHSM](https://user-images.githubusercontent.com/39899731/194975398-c0ffddc7-f8dd-4702-851c-4aca5c9a0454.png)
 
