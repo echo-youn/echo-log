@@ -12,3 +12,4 @@
 
 [Auto Scaling Group](/aws/solution-architect-associate/auto-scailing-group)
 
+[Convertible Rereserved Instance](/aws/solution-architect-associate/convertible-reserved-ec2)
