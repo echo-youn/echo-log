@@ -12,8 +12,7 @@ Standard RI는 AZ, scope, network platform, Instance Size 등을 동일한 인�
 
 Standard RI와 Convertible RI를 동시에 사용했을때 얻을 수 있는 이점은 무엇인가?
 
-
-
+![Convertible-Ec2](https://user-images.githubusercontent.com/39899731/195230014-cce9f280-7447-42d5-8763-f37cb331b029.jpeg)
 
 
 ## 지문 분석
