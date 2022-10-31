@@ -19,7 +19,8 @@ const config = defineConfig({
             {
                 text: 'Home',
                 items: [
-                    { text: 'Home', link : '/' }
+                    { text: 'Home', link : '/' },
+                    { text: 'Clean Code', link: '/clean-code'}
                 ],
                 collapsible: true,
                 collapsed: true
