@@ -44,6 +44,15 @@ const config = defineConfig({
                 ],
                 collapsible: true,
                 collapsed: true
+            },
+            {
+                text: 'etc',
+                items: [
+                    { text: 'Index', link: '/etc/'},
+                    { text: 'Vim-copy-paste', link: '/etc/vim-copy-paste'}
+                ],
+                collapsible: true,
+                collapsed: true
             }
         ],
         logo: '/favicon.png',
