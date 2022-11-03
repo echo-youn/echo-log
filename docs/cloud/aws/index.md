@@ -1,15 +1,15 @@
 # AWS
 
-[AWS Artifact](/aws/solution-architect-associate/aws-artifact)
+[AWS Artifact](/cloud/aws/solution-architect-associate/aws-artifact)
 
-[AWS Macie](/aws/solution-architect-associate/aws-macie)
+[AWS Macie](/cloud/aws/solution-architect-associate/aws-macie)
 
-[S3 Versioning and Lock](/aws/solution-architect-associate/s3-version-and-lock)
+[S3 Versioning and Lock](/cloud/aws/solution-architect-associate/s3-version-and-lock)
 
-[Cloud Watch Default Metric](/aws/solution-architect-associate/cloudwatch-default-metric)
+[Cloud Watch Default Metric](/cloud/aws/solution-architect-associate/cloudwatch-default-metric)
 
-[Key Management Service](/aws/solution-architect-associate/key-management-service)
+[Key Management Service](/cloud/aws/solution-architect-associate/key-management-service)
 
-[Auto Scaling Group](/aws/solution-architect-associate/auto-scailing-group)
+[Auto Scaling Group](/cloud/aws/solution-architect-associate/auto-scailing-group)
 
-[Convertible Rereserved Instance](/aws/solution-architect-associate/convertible-reserved-ec2)
+[Convertible Rereserved Instance](/cloud/aws/solution-architect-associate/convertible-reserved-ec2)
