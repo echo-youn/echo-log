@@ -37,10 +37,10 @@ const config = defineConfig({
                 collapsed: true
             },
             {
-                text: 'AWS',
+                text: 'Cloud',
                 items: [
-                    { text: 'Index', link: '/aws/' },
-                    { text: 'Resources', link: '/aws/resources/' }
+                    { text: '클라우드 비교', link: '/cloud/comparision' },
+                    { text: 'AWS', link: '/cloud/aws/', items: [{ text: 'Resource', link: '/cloud/aws/resources/' }]}
                 ],
                 collapsible: true,
                 collapsed: true
