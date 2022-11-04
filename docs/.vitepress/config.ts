@@ -46,6 +46,15 @@ const config = defineConfig({
                 collapsed: true
             },
             {
+                text: 'Docker',
+                items: [
+                    { text: 'Index', link: '/docker/' },
+                    { text: 'docker images 조회가 느릴 때', link: '/docker/docker-image-prune' }
+                ],
+                collapsible: true,
+                collapsed: true
+            },
+            {
                 text: 'etc',
                 items: [
                     { text: 'Index', link: '/etc/'},
