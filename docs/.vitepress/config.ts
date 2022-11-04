@@ -49,7 +49,8 @@ const config = defineConfig({
                 text: 'Docker',
                 items: [
                     { text: 'Index', link: '/docker/' },
-                    { text: 'docker images 조회가 느릴 때', link: '/docker/docker-image-prune' }
+                    { text: '도커 이미지 조회가 느릴 때', link: '/docker/docker-image-prune' },
+                    { text: '도커 정보 보기', link: '/docker/docker-info' }
                 ],
                 collapsible: true,
                 collapsed: true
@@ -58,7 +59,7 @@ const config = defineConfig({
                 text: 'etc',
                 items: [
                     { text: 'Index', link: '/etc/'},
-                    { text: 'Vim-copy-paste', link: '/etc/vim-copy-paste'}
+                    { text: 'Vim 복사 붙여넣기', link: '/etc/vim-copy-paste'}
                 ],
                 collapsible: true,
                 collapsed: true
