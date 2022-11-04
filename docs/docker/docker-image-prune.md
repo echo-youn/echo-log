@@ -10,7 +10,8 @@
 
 
 ```shell
-$ docker images | wc -l # count docker images
+$ docker images | wc -l # 도커 이미지 갯수 세기.
+$ docker -D info # 도커의 전반적인 정보를 얻을 수 있다.
 ```
 
 ## docker image prune
