@@ -19,8 +19,8 @@ const config = defineConfig({
             {
                 text: 'Home',
                 items: [
-                    { text: 'Home', link : '/' },
-                    { text: 'Clean Code', link: '/clean-code'}
+                    { text: 'Home', link: '/' },
+                    { text: 'Clean Code', link: '/clean-code' }
                 ],
                 collapsible: true,
                 collapsed: true
@@ -41,7 +41,13 @@ const config = defineConfig({
                 text: 'Cloud',
                 items: [
                     { text: '클라우드 비교', link: '/cloud/comparision' },
-                    { text: 'AWS', link: '/cloud/aws/', items: [{ text: 'Resource', link: '/cloud/aws/resources/' }]}
+                    {
+                        text: 'AWS',
+                        link: '/cloud/aws/',
+                        items: [
+                            { text: 'Resource', link: '/cloud/aws/resources/' }
+                        ]
+                    }
                 ],
                 collapsible: true,
                 collapsed: true
@@ -59,8 +65,29 @@ const config = defineConfig({
             {
                 text: 'etc',
                 items: [
-                    { text: 'Index', link: '/etc/'},
-                    { text: 'Vim 복사 붙여넣기', link: '/etc/vim-copy-paste'}
+                    { text: 'Index', link: '/etc/' },
+                    { text: 'Vim 복사 붙여넣기', link: '/etc/vim-copy-paste' }
+                ],
+                collapsible: true,
+                collapsed: true
+            },
+            {
+                text: 'Spring Boot',
+                items: [
+                    { text: 'Index', link: '/springBoot/' },
+                    {
+                        text: 'JPA',
+                        link: '/springBoot/jpa/',
+                        items: [
+                            { text: 'Transactional', link: '/coming-soon' },
+                            { text: 'Dirty check', link: '/coming-soon' },
+                            { text: 'Reader DB', link: '/coming-soon' },
+                            { text: 'Transactional propagation', link: '/coming-soon' },
+                            { text: 'Envers', link: '/coming-soon' },
+                            { text: 'Persistent context', link: '/coming-soon' },
+                            { text: 'Entity graph', link: '/coming-soon' },
+                        ]
+                    }
                 ],
                 collapsible: true,
                 collapsed: true
