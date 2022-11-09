@@ -31,7 +31,8 @@ const config = defineConfig({
                     { text: 'Index', link: '/sql/' },
                     { text: 'About Index', link: '/sql/about-index' },
                     { text: 'Explain #1', link: '/sql/mysql-explain-01' },
-                    { text: 'Explain #2', link: '/sql/mysql-explain-02' }
+                    { text: 'Explain #2', link: '/sql/mysql-explain-02' },
+                    { text: 'Collation', link: '/sql/collation' }
                 ],
                 collapsible: true,
                 collapsed: true
