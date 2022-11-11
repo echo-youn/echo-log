@@ -1,3 +1,4 @@
+import { SearchPlugin } from "vitepress-plugin-search";
 import { defineConfig } from 'vitepress'
 
 /**
@@ -138,7 +139,10 @@ const config = defineConfig({
             indexName: 'vitepress'
         }
     },
-    lastUpdated: true
+    lastUpdated: true,
+    vite: {
+        plugins: [SearchPlugin({})]
+    }
 })
 
 export default config
