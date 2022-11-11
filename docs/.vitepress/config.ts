@@ -66,10 +66,21 @@ const config = defineConfig({
                 text: 'etc',
                 items: [
                     { text: 'Index', link: '/etc/' },
-                    { text: 'Vim 복사 붙여넣기', link: '/etc/vim-copy-paste' }
+                    { text: 'Vim 복사 붙여넣기', link: '/etc/vim-copy-paste' },
+                    { text: 'Git convention', link: '/etc/git-convention' }
                 ],
                 collapsible: true,
                 collapsed: true
+            },
+            {
+                text: 'Java',
+                items: [
+                    { text: 'Index', link: '/java/' },
+                    { text: 'Xerces 지옥 벗어나기', link: '/java/xerces-hell' },
+                    { text: 'Jvm Heap & GC', link: '/java/jvm-heap-GC' },
+                ],
+                collapsed: true,
+                collapsible: true
             },
             {
                 text: 'Spring Boot',
