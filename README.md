@@ -21,3 +21,4 @@ $ yarn docs:dev
 - [Vue3](https://v3.ko.vuejs.org/guide/migration/introduction.html)
 - Algoria
 - Github page
+- [FlexSearch](https://github.com/nextapps-de/flexsearch#options)

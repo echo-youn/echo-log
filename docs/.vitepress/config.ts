@@ -1,3 +1,4 @@
+import { SearchPlugin } from "vitepress-plugin-search";
 import { defineConfig } from 'vitepress'
 
 /**
@@ -138,7 +139,18 @@ const config = defineConfig({
             indexName: 'vitepress'
         }
     },
-    lastUpdated: true
+    lastUpdated: true,
+    vite: {
+        plugins: [SearchPlugin({
+            preset: 'performance',
+            tokenize: 'full',
+            cache: true,
+            resolution: 1000,
+            context: true,
+            optimize: true, // 메모리 최적화 인덱스
+            language: 'ko'
+        })]
+    }
 })
 
 export default config
