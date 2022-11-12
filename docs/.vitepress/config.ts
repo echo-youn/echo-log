@@ -133,8 +133,8 @@ const config = defineConfig({
         },
         lastUpdatedText: 'Updated Date',
         algolia: {
-            appId: '',
-            apiKey: '',
+            appId: 'KUIWK09R9Y',
+            apiKey: 'e7c343fceec7677429432debe8d5ad53',
             indexName: 'vitepress'
         }
     },
