@@ -31,3 +31,44 @@ IIS를 설치하기 위해서 `Windows 기능 켜기/끄기`를 통해 Windows�
 
 ![IIS_startmenu](https://user-images.githubusercontent.com/39899731/201528294-3472f0f7-d703-448f-a106-4c35777b23dd.png)
 
+## ASP 등록하기
+
+제 경우에는 나머지 단계를 진행하기 전 머신에 ASP.NET이 등록되어 있지 않아서 삽질을 좀 했습니다.
+
+하이라이트 된 부분
+![aspnet](https://user-images.githubusercontent.com/39899731/201528547-80b9b7af-0e9b-498b-9e76-7e26dc572787.jpeg)
+
+우선 Windows 기능 추가/제거 에서 `ASP.NET`의 사용하려는 버전 또는 모든 버전에 체크가 되어 있는지 확인하여 체크합니다.
+
+그 후 명령 프롬프트 창을 관리자 모드로 실행합니다.
+
+그리고 아래 명령어로 .NET Framework 폴더로 접근합니다.
+
+```cmd
+$ cd c:\Windows\Microsoft.NET\Framework64\v4.0.30319
+```
+
+그 후 다음 명령어를 입력합니다.
+
+```cmd
+$ aspnet_regiis.exe -i
+```
+
+설치가 완료되었습니다. 라는 문구가 뜨면 정상적으로 등록된 것이며 다시 IIS에 들어가 확인합니다.
+
+## IIS 웹사이트 만들기
+
+이제 본격적으로 로컬에 웹사이트를 호스팅 합니다.
+
+IIS의 왼쪽 메뉴에서 `사이트`를 오른쪽 클릭하여 `웹 사이트 추가`를 클릭합니다.
+
+그럼 다음과 같은 창이 뜹니다.
+
+![iis-new](https://user-images.githubusercontent.com/39899731/201528790-d818fd76-b131-412f-8d48-2d2014cd3882.png)
+
+|사이트이름|실제 경로|IP 주소|포트|호스트 이름|
+|-|-|-|-|-|
+|웹 사이트의 별칭|프로젝트의 위치(bin 폴더)|서버의 IP 주소(로컬 머신에 호스팅하기 때문에 127.0.0.1)|HTTP: 80, HTTPS: 443|도메인|
+
+
+
