@@ -11,7 +11,7 @@ const config = defineConfig({
     description: `Echo's extra-ordinary journey`,
     base: GITHUB_BASE_REPOSITORY_NAME,
     head: [
-        ['link', { rel: 'icon', href: LOGO_PATH }] // <link rel="icon" href="LOGO_PATH" />
+        ['link', { rel: 'icon', href: LOGO_PATH }], // <link rel="icon" href="LOGO_PATH" />
     ],
     themeConfig: {
         sidebar: [
@@ -143,7 +143,8 @@ const config = defineConfig({
             indexName: 'vitepress'
         }
     },
-    lastUpdated: true
+    lastUpdated: true,
+    cleanUrls: 'without-subfolders'
 })
 
 export default config
