@@ -2,12 +2,10 @@
     "index_name": "vitepress",
     "start_urls": ["https://echo-youn.github.io/echo-log"],
     "selectors": {
-      "lvl0": ".content h1",
-      "lvl1": ".content h2",
-      "lvl2": ".content h3",
-      "lvl3": ".content h4",
-      "lvl4": ".content h5",
-      "lvl5": ".content h6",
-      "text": ".content p,.content ul li"
+      "lvl0": "",
+      "lvl1": ".content-container h1",
+      "lvl2": ".content-container h2",
+      "lvl3": ".content-container h3",
+      "text": ".content-container p"
     }
   }

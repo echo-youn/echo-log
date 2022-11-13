@@ -18,7 +18,8 @@ $ yarn docs:dev
 
 ## Docsearch Scrapper Docker
 ```shell
-$ sudo apt install jq docker # docker & jq required
+$ apt install jq docker # docker & jq required on linux
+$ brew install jq docker # docker & jq on mac
 $ touch .env # env 파일 작성(APP_ID, API_KEY)
 $ docker run -it --env-file=.env -e "CONFIG=$(cat docsearch-config.json | jq -r tostring)" algolia/docsearch-scraper # Docsearch-scrapper docker
 ```
@@ -31,5 +32,6 @@ https://docsearch.algolia.com/docs/legacy/run-your-own/#running-the-crawler-from
 - [Vue3](https://v3.ko.vuejs.org/guide/migration/introduction.html)
 - Algoria
 - [Doc search scraper](https://github.com/algolia/docsearch-scraper)
-- Github page
 - [DocSearch Program](https://docsearch.algolia.com/docs/DocSearch-program)
+- Github page
+
