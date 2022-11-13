@@ -3,7 +3,7 @@ import { defineConfig } from 'vitepress'
 /**
  * This is for base url.
  */
-const GITHUB_BASE_REPOSITORY_NAME = '/echo-log/'
+const GITHUB_BASE_REPOSITORY_NAME = '/'
 const LOGO_PATH = 'https://user-images.githubusercontent.com/39899731/201515448-b438b045-21ba-4028-8915-e2d7a9706d0e.png'
 
 const config = defineConfig({
