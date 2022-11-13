@@ -4,11 +4,15 @@ import { defineConfig } from 'vitepress'
  * This is for base url.
  */
 const GITHUB_BASE_REPOSITORY_NAME = '/echo-log/'
+const LOGO_PATH = 'https://user-images.githubusercontent.com/39899731/201515448-b438b045-21ba-4028-8915-e2d7a9706d0e.png'
 
 const config = defineConfig({
     title: 'Echo Youn',
     description: `Echo's extra-ordinary journey`,
     base: GITHUB_BASE_REPOSITORY_NAME,
+    head: [
+        ['link', { rel: 'icon', href: LOGO_PATH }] // <link rel="icon" href="LOGO_PATH" />
+    ],
     themeConfig: {
         sidebar: [
             {
@@ -99,7 +103,7 @@ const config = defineConfig({
                 collapsed: true
             }
         ],
-        logo: '/favicon.png',
+        logo: LOGO_PATH,
         nav: [
             { text: 'Home', link: '/' }
         ],
