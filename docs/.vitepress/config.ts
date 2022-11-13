@@ -68,6 +68,11 @@ const config = defineConfig({
                     { text: 'Vim 복사 붙여넣기', link: '/etc/vim-copy-paste' },
                     { text: 'Git convention', link: '/etc/git-convention' },
                     { text: 'Javascript로 탭메뉴 만들기', link: '/etc/tab-menu' },
+                    { text: 'Github SSH 키 사용하기', link: '/etc/git-ssh' },
+                    { text: 'Windows IIS 설치', link: '/etc/windows-iis' },
+                    { text: 'SSMS 엑셀 태스킹 오류', link: '/etc/ssms-tasking' },
+                    { text: 'git branch pager 이슈', link: '/etc/git-branch-pager' },
+                    { text: '우분투 한/영키 비주얼스튜디오 버그', link: '/etc/linux-vsc-alt-r' },
                 ],
                 collapsible: true,
                 collapsed: true
