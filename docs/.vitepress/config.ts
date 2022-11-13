@@ -7,12 +7,7 @@ const GITHUB_BASE_REPOSITORY_NAME = '/echo-log/'
 
 const config = defineConfig({
     title: 'Echo Youn',
-    description: `Play Aroung
-    Description
-    A
-    B
-    C
-    D`,
+    description: `Echo's extra-ordinary journey`,
     base: GITHUB_BASE_REPOSITORY_NAME,
     themeConfig: {
         sidebar: [
