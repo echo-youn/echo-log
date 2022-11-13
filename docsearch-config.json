@@ -1,6 +1,6 @@
 {
     "index_name": "vitepress",
-    "start_urls": ["https://echo-youn.github.io/echo-log"],
+    "start_urls": ["https://blog.echo-youn.com"],
     "selectors": {
       "lvl0": "",
       "lvl1": ".content-container h1",
