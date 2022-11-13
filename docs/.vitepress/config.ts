@@ -66,7 +66,8 @@ const config = defineConfig({
                 items: [
                     { text: 'Index', link: '/etc/' },
                     { text: 'Vim 복사 붙여넣기', link: '/etc/vim-copy-paste' },
-                    { text: 'Git convention', link: '/etc/git-convention' }
+                    { text: 'Git convention', link: '/etc/git-convention' },
+                    { text: 'Javascript로 탭메뉴 만들기', link: '/etc/tab-menu' },
                 ],
                 collapsible: true,
                 collapsed: true
