@@ -1,11 +1,6 @@
 <script lang="ts" setup>
-import { onUpdated } from '@vue/runtime-core'
 import DefaultTheme from 'vitepress/theme'
 import Utterance from './Utterance.vue'
-
-onUpdated(() => {
-  console.log(123)
-})
 
 const { Layout } = DefaultTheme
 </script>
