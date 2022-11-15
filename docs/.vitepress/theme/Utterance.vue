@@ -34,7 +34,6 @@ onMounted(() => {
 const uterbuilder = () => {
     const utterances = document.createElement('script');
     utterances.type = 'text/javascript';
-    utterances.async = true;
     utterances.crossOrigin = 'anonymous';
     utterances.src = 'https://utteranc.es/client.js';
 

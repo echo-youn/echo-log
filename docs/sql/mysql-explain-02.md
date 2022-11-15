@@ -4,8 +4,10 @@
     }
 </style>
 
-# Mysql Query Execution Plan #1
+# Mysql Query Execution Plan #2
 Explain은  SELECT, UPDATE, INSERT 등 DML문의 쿼리 실행 계획을 미리보는 기능입니다. 이 기능을 사용하여 데이터 조회 시 더 빠르게 조회 할 수 있는 인덱스를 찾을 수 있도록 도움을 줍니다. 이 기능을 [공식 문서](https://dev.mysql.com/doc/refman/8.0/en/explain-output.html#explain-output-columns)를 기반으로 간략하게 정리합니다.
+
+이 포스트는 1, 2로 나누어서 작성되었습니다.
 
 # Explain
 ## Explain 결과 컬럼
