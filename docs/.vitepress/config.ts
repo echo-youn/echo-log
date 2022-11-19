@@ -56,7 +56,8 @@ const config = defineConfig({
                 items: [
                     { text: 'Index', link: '/docker/' },
                     { text: '도커 이미지 조회가 느릴 때', link: '/docker/docker-image-prune' },
-                    { text: '도커 정보 보기', link: '/docker/docker-info' }
+                    { text: '도커 정보 보기', link: '/docker/docker-info' },
+                    { text: '우분투에 도커 설치하기', link: '/docker/docker-install-on-ubuntu' }
                 ],
                 collapsible: true,
                 collapsed: true
