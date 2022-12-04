@@ -63,6 +63,15 @@ const config = defineConfig({
                 collapsed: true
             },
             {
+                text: 'Kotlin',
+                items: [
+                    { text: 'Index', link: '/kotlin/' },
+                    { text: 'Index', link: '/kotlin/' },
+                ],
+                collapsed: true,
+                collapsible: true
+            },
+            {
                 text: 'etc',
                 items: [
                     { text: 'Index', link: '/etc/' },
