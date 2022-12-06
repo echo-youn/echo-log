@@ -66,10 +66,11 @@ const config = defineConfig({
                 text: 'Kotlin',
                 items: [
                     { text: 'Index', link: '/kotlin/' },
-                    { text: 'Compile', link: '/kotlin/compile' },
-                    { text: 'Loop', link: '/kotlin/loop' },
+                    { text: '컴파일', link: '/kotlin/compile' },
+                    { text: '반복문', link: '/kotlin/loop' },
                     { text: 'Statement & Expression', link: '/kotlin/statement-&-expression' },
-                    { text: 'Overloading', link: '/kotlin/overloading' },
+                    { text: '오버로딩', link: '/kotlin/overloading' },
+                    { text: '확장 메서드', link: '/kotlin/method-extension' },
                 ],
                 collapsed: true,
                 collapsible: true
