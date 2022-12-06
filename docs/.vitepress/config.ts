@@ -72,6 +72,8 @@ const config = defineConfig({
                     { text: '오버로딩', link: '/kotlin/overloading' },
                     { text: '확장 메서드', link: '/kotlin/method-extension' },
                     { text: '가변인자', link: '/kotlin/varargs' },
+                    { text: '중위 호출 및 구조 분해 선언', link: '/kotlin/infix-call-destructuring-declaration' },
+                    
                 ],
                 collapsed: true,
                 collapsible: true
