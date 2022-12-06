@@ -71,6 +71,7 @@ const config = defineConfig({
                     { text: 'Statement & Expression', link: '/kotlin/statement-&-expression' },
                     { text: '오버로딩', link: '/kotlin/overloading' },
                     { text: '확장 메서드', link: '/kotlin/method-extension' },
+                    { text: '가변인자', link: '/kotlin/varargs' },
                 ],
                 collapsed: true,
                 collapsible: true
