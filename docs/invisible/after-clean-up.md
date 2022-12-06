@@ -53,7 +53,7 @@ echo "alias ll='ls -al'" > ~/.zshrc
 usermod -aG sudo $(whoami)
 sudo apt-get update
 
-sudo apt-get install wget curl gpg git apt-transport-https
+sudo apt-get install wget curl gpg git apt-transport-https maven gradle
 
 # node(19.x) npm nvm
 curl -fsSL https://deb.nodesource.com/setup_19.x | sudo -E bash - &&\
@@ -95,5 +95,11 @@ $ ibus-setup # setup 후 로그아웃
 ```
 
 ### JDK
+```
 
+```
 
+### DBeaver
+```shell
+sudo snap install dbeaver-ce
+```
