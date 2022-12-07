@@ -68,7 +68,7 @@ const config = defineConfig({
                     { text: 'Index', link: '/kotlin/' },
                     { text: '컴파일', link: '/kotlin/compile' },
                     { text: '반복문', link: '/kotlin/loop' },
-                    { text: 'Statement & Expression', link: '/kotlin/statement-&-expression' },
+                    { text: 'Statement & Expression', link: '/kotlin/statement-expression' },
                     { text: '오버로딩', link: '/kotlin/overloading' },
                     { text: '확장 메서드', link: '/kotlin/method-extension' },
                     { text: '가변인자', link: '/kotlin/varargs' },
