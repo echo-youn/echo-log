@@ -55,3 +55,9 @@ class Button: Clickable, Focuable {
     }
 }
 ```
+
+## 인터페이스의 access modifier
+
+인터페이스의 멤버는 final, open, abstract 등의 키워드를 사용할 수 없다.
+
+인터페이스의 멤버는 항상 open이며 final로 변경할 수 없다.

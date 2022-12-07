@@ -74,6 +74,8 @@ const config = defineConfig({
                     { text: '가변인자', link: '/kotlin/varargs' },
                     { text: '중위 호출 및 구조 분해 선언', link: '/kotlin/infix-call-destructuring-declaration' },
                     { text: '인터페이스', link: '/kotlin/interface' },
+                    { text: '취약한 베이스 클래스', link: '/kotlin/fragile-base-class' },
+                    { text: '스마트 캐스팅', link: '/kotlin/smart-casting' },
                 ],
                 collapsed: true,
                 collapsible: true
