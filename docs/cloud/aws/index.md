@@ -13,3 +13,7 @@
 [Auto Scaling Group](/cloud/aws/solution-architect-associate/auto-scailing-group)
 
 [Convertible Rereserved Instance](/cloud/aws/solution-architect-associate/convertible-reserved-ec2)
+
+[S3 Multipart](/cloud/aws/solution-architect-associate/s3-multipart)
+
+[S3 Origin Access Identifier](/cloud/aws/solution-architect-associate/s3-OAI)
