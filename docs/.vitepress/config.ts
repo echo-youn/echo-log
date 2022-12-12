@@ -76,6 +76,7 @@ const config = defineConfig({
                     { text: '인터페이스', link: '/kotlin/interface' },
                     { text: '취약한 베이스 클래스', link: '/kotlin/fragile-base-class' },
                     { text: '스마트 캐스팅', link: '/kotlin/smart-casting' },
+                    { text: '데이터 클래스', link: '/kotlin/data-class' },
                 ],
                 collapsed: true,
                 collapsible: true
