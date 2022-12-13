@@ -77,6 +77,7 @@ const config = defineConfig({
                     { text: '취약한 베이스 클래스', link: '/kotlin/fragile-base-class' },
                     { text: '스마트 캐스팅', link: '/kotlin/smart-casting' },
                     { text: '데이터 클래스', link: '/kotlin/data-class' },
+                    { text: '싱글톤 객체', link: '/kotlin/singleton-object' },
                 ],
                 collapsed: true,
                 collapsible: true
