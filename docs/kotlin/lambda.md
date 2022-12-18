@@ -74,3 +74,47 @@ println(a.count { it % 2 == 0 })
 위의 코드와 같이 count로 하는것이 훨씬 효율적이다.
 
 필요에 따라 컬렉션 API를 적절하게 사용해야 한다.
+
+## flatMap
+
+`Kotlin in action`에서 코틀린의 컬렉션 메서드 중 `flatMap`을 예시로 소개하고 있다.
+
+`flatMap`은 컬렉션안에 또다른 컬렉션이 중첩되어 있을때 이를 하나의 컬렉션으로 변환해 주는 역할을 한다.
+
+컬렉션 안의 컬렉션을 `flat`하도록 변환할 때 `map`으로만 처리해야한다면 다음과 같이 해야할 것이다.
+
+```kotlin
+data class Book(
+    val title: String,
+    val authors: List<String>
+)
+
+val a = listOf(Book("bb", listOf("alen")), Book("cc", listOf("alen", "echo")), Book("title", listOf("a", "b", "c")))
+
+val temp = mutableListOf<String>()
+
+a.forEach {
+    it.authors.mapTo(temp) {innerIt ->
+        innerIt
+    }
+}
+
+println(temp)
+
+>> [alen, alen, echo, a, b, c]
+```
+
+더 나은 코드가 있겠지만 2중 반복문으로 컬렉션 안의 컬렉션을 하나의 컬렉션에 담기위해 여러 줄의 코드를 구현해야한다.
+
+아래는 `flatMap`을 사용했을 때 간결해진 코드를 볼 수 있다.
+
+```kotlin
+println(a.flatMap { it.authors })
+
+>> [alen, alen, echo, a, b, c]
+```
+
+## 지연 계산 컬렉션 연산
+
+lazy <-> eagerly
+
