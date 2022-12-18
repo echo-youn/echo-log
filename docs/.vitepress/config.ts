@@ -78,6 +78,7 @@ const config = defineConfig({
                     { text: '스마트 캐스팅', link: '/kotlin/smart-casting' },
                     { text: '데이터 클래스', link: '/kotlin/data-class' },
                     { text: '싱글톤 객체', link: '/kotlin/singleton-object' },
+                    { text: '람다', link: '/kotlin/lambda' },
                 ],
                 collapsed: true,
                 collapsible: true
