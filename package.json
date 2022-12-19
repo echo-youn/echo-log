@@ -11,7 +11,7 @@
   },
   "devDependencies": {
     "typescript": "^4.8.4",
-    "vitepress": "^1.0.0-alpha.16",
+    "vitepress": "^1.0.0-alpha.32",
     "vue": "^3.2.39"
   },
   "dependencies": {
