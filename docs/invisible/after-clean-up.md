@@ -95,5 +95,8 @@ $ ibus-setup # setup 후 로그아웃
 ```
 
 ### JDK
+### Temurin (Hotspot)
+https://adoptium.net/installation/linux/
 
-
+### Semeru (OpenJ9)
+https://developer.ibm.com/languages/java/semeru-runtimes/downloads/
