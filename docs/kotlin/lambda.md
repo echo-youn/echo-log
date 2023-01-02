@@ -114,7 +114,3 @@ println(a.flatMap { it.authors })
 >> [alen, alen, echo, a, b, c]
 ```
 
-## 지연 계산 컬렉션 연산
-
-lazy <-> eagerly
-
