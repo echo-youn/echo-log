@@ -50,4 +50,31 @@ with 함수는 첫번째 파라미터가 수신객체이며, 두번째 파라미
 public inline fun <T, R> with(receiver: T, block: T.() -> R): R {contract{};}
 ```
 
+## apply 함수
+
+apply 함수는 with와 거의 같은데, 차이점은 apply 함수는 자신에게 전달된 객체(수신객체)를 반환한다는 점이다.
+
+```kotlin
+val a= StringBuilder().apply {
+    for (letter in 'A'..'Z') {
+        append(letter)
+    }
+}.toString()
+
+val b = with(StringBuilder()) {
+    for(letter in '가'..'힣') {
+        append(letter)
+    }
+    println(toString())
+}.toString()
+
+println(a)
+println(b)
+
+>>
+가각갂갃간갅갆갇갈갉갊갋갌...힣
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+kotlin.Unit
+```
+
 
