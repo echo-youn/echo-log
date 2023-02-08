@@ -81,6 +81,10 @@ const config = defineConfig({
                     { text: '람다', link: '/kotlin/lambda' },
                     { text: 'lazy-collection', link: '/kotlin/lazy-collection' },
                     { text: '함수형 인터페이스(SAM)', link: '/kotlin/SAM' },
+                    { text: 'with apply', link: '/kotlin/with-apply' },
+                    { text: 'null safety', link: '/kotlin/null-safety'},
+                    { text: 'lateInit', link: '/kotlin/lateinit'},
+                    { text: 'primitive type', link: '/kotlin/primitive-type'},
                 ],
                 collapsed: true,
                 collapsible: true
