@@ -85,6 +85,7 @@ const config = defineConfig({
                     { text: 'null safety', link: '/kotlin/null-safety'},
                     { text: 'lateInit', link: '/kotlin/lateinit'},
                     { text: 'primitive type', link: '/kotlin/primitive-type'},
+                    { text: 'collection', link: '/kotlin/collection'},
                 ],
                 collapsed: true,
                 collapsible: true
