@@ -86,6 +86,7 @@ const config = defineConfig({
                     { text: 'lateInit', link: '/kotlin/lateinit'},
                     { text: 'primitive type', link: '/kotlin/primitive-type'},
                     { text: 'collection', link: '/kotlin/collection'},
+                    { text: '산술 연산자 오버로딩', link: '/kotlin/arithmetic-operator-overloading' }
                 ],
                 collapsed: true,
                 collapsible: true
