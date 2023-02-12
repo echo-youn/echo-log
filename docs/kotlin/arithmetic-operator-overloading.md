@@ -156,8 +156,82 @@ class Point(val x: Int, val y: Int) {
 }
 ```
 
+### 위임 프로퍼티 (delegated property)
 
+코틀린에서 제공하는 특성 중 독특하면서 강력한 기능인 위임 프로퍼티(deletgated property)이다.
+위임 프로퍼티를 사용하면 값을 뒷받침하는 필드에 단순히 저장하는 것 보다 더 복잡한 방식으로 작동하는 프로퍼티를 쉽게 구현할 수 있다.
 
+예를 들면, 프로퍼티는 위임을 이용해 값을 필드가 아니라 데이터베이스 테이블이나 브라우저 세션이나 맵 등에 저장할 수 있다.
 
+그러면 어떻게 사용하면 되는지 문법을 예제로 알아보자.
 
+```kotlin
+class Foo {
+    var p: Type by Delegate()
+}
+```
+
+위 예제를 컴파일러는 숨겨진 도우미 프로퍼티를 만들고 그 프로퍼티를 위임 객체의 인스턴스로 초기화한다.
+
+```kotlin
+class Foo {
+    private val delegate = Delegate() // 컴파일러가 만든 도우미 프로퍼티다.
+    var p: Type
+    set(value: Type) = delegate.setValue(..., value) // 프로퍼티에 접근할때 이 메서드를 호출하게 된다.
+    get() = delegate.getValue()
+}
+```
+
+그러면 Delegate 클래스는 관례에 따라 `getValue`와 `setValue` 메소드를 제공해야한다.
+
+```kotlin
+class Delegate {
+    operator fun getValue(...) { ... }
+    operator fun setValue(..., value: Type) { ... }
+}
+
+class Foo {
+    var p: Type by Delegate()
+}
+```
+
+그러면 이제 Foo의 p 프로퍼티에 접근할때에 Delegate의 메서드를 호출하게 된다. 코틀린 라이브러리는 프로퍼티 위임을 사용해 프로퍼티 초기화를 지연시켜 줄 수 있다.
+
+## 위임 프로퍼티 초기화 지연 (by lazy)
+
+지연 초기화(lazy initialization)는 객체의 일부를 초기화하지 않고 있다가, 그 자원이 필요할때 초기화하는 흔히 쓰이는 패턴이다.
+
+초기화 과정에서 자원을 많이 사용하거나 꼭 초기화하지 않아도되는 프로퍼티에 대해 지연 초기화 패턴을 사용할 수 있다.
+
+지연 초기화의 예를 들어본다.
+
+```kotlin
+class Person(val name: String) {
+    private var _emails: List<Email>? = null // 이메일의 실제 데이터는 이 프로퍼티에 저장한다.
+
+    val emails: List<Email> // 이메일의 실제 데이터는 여기에 담겨있지 않다.
+        get() {
+            if (_emails == null) {
+                _emails = loadEmails(this) // 최초 접근시(backing property가 널 일때)에만 이메일을 가져온다.
+            }
+            return _emails ?: listOf()
+        }
+}
+```
+
+여기서는 `backing property`라는 기법을 사용한다. `_emials`라는 프로퍼티는 값을 저장하고 `emails` 프로퍼티는 읽기 연산만을 제공한다.
+
+하지만 이런 코드를 만드는것은 약간 성가시다. 이런 프로퍼티가 많아지면 구현도 번거로워지고 이 구현은 스레드 세이프하지 않아서 멀티스레드 환경에서 에러를 발생시킬 수 있다.
+
+코틀린은 이런 경우를 코틀린 라이브러리에서 `by lazy` 함수로 지원해준다.
+
+```kotlin
+class Person(val name: String) {
+    val emails by lazy { loadEmails(this) }
+}
+```
+
+lazy 함수는 기본적으로 스레드 세이프하다. 그러나 필요에 따라 동기화에 사용할 락을 lazy 함수에 전달할 수도 있고, 다중 스레드 환경에서 사용하지 않을 프로퍼티를 위해 lazy 함수가 동기화를 하지 못하게 막을 수도 있다.
+
+backing property -> non thread-safe
 
