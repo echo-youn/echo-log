@@ -87,7 +87,8 @@ const config = defineConfig({
                     { text: 'primitive type', link: '/kotlin/primitive-type'},
                     { text: 'collection', link: '/kotlin/collection'},
                     { text: '산술 연산자 오버로딩', link: '/kotlin/arithmetic-operator-overloading' },
-                    { text: '고차 함수', link: '/kotlin/higher-order-function' }
+                    { text: '고차 함수', link: '/kotlin/higher-order-function' },
+                    { text: '제네릭스', link: '/kotlin/generics' }
                 ],
                 collapsed: true,
                 collapsible: true
