@@ -103,6 +103,12 @@ const config = defineConfig({
                     { text: 'git branch pager 이슈', link: '/etc/git-branch-pager' },
                     { text: '우분투 한/영키 비주얼스튜디오 버그', link: '/etc/linux-vsc-alt-r' },
                     { text: 'DBeaver 힙 메모리 부족', link: '/etc/dbeaver-heap' },
+                    {
+                        text: 'TIL',
+                        items: [
+                            { text: '기능이 넘쳐나는 API가 좋을까? 요구사항에 딱 맞는 API가 좋을까?', link: '/etc/til/api-design' }
+                        ]
+                    }
                 ],
                 collapsible: true,
                 collapsed: true
