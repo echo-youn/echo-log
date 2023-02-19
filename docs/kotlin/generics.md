@@ -152,4 +152,88 @@ val serviceImpl = loadService<Service>()
 
 ## 공변성
 
+`공변성`이란 A가 B의 하위 타입일때, `Producer<A>`가 `Producer<B>`의 하위 타입이면 Producer는 공변적이다.
+이를 하위 타입 관계가 유지된다고 한다.
 
+예를 들어 Cat이 Animal의 하위 타입이기 때문에 `Producer<Cat>`은 `Producer<Animal>`의 하위 타입이다.
+
+코틀린에서 제네릭 클래스가 타입 파라미터에 대해 공변적임을 표시하렴녀 타입 파라미터 이름 앞에 out을 넣으면 된다.
+
+```kotlin
+interface Producer<out T> {
+    fun produce(): T
+}
+```
+
+```kotlin
+open class Animal {
+    fun feed() {...}
+}
+
+class Herd<T: Animal> {
+    val size: Int get() = ...
+    operator fun get(i: Int): T { ... }
+}
+
+fun feedAll(animals: Herd<Animal>) {
+    for (i in 0 until animals.size) {
+        animals[i].feed()
+    }
+}
+
+class Cat: Animal() {
+    fun cleanLitter() { ... }
+}
+
+fun takeCareOfCats(cats: Herd<Cat>) {
+    for (i in 0 until cats.size) {
+        cats[i].cleanLitter()
+        // feedAll(cats)
+        // Error: inferred type is Herd<Cat>. but Herd<Animal> was expected. (type mismatch)
+    }
+}
+```
+
+위 코드는 주석과 같은 오류를 볼 수 있는데, 이는 Herd 클래스의 T 타입 파라미터에 대해 아무 변성도 지정하지 않았기 때문에, 고양이 무리는 동물 무리의 하위 클래스가 아니다. 사실 이는 명시적인 타입 캐스팅 하면 해결되지만, 올바른 해결 방법은 아니다. 따라서 Herd를 공변 클래스로 만들고 호출 코드를 바꿀 수 있다.
+
+```
+class Herd<out T: Animal> { // T는 이제 공변적이다.
+    ...
+}
+```
+
+모든 클래스가 공변적일때 안전하지는 않다. 타입 파라미터를 공변적으로 지정하면 클래스 내부에서 그 파라미터를 사용하는 방법은 항상 out 위치에만 있어야 하도록 제한한다.
+이는 클래스가 T 타입의 값을 생산할 수는 있지만 T 타입의 값을 소비할 수는 없다는 뜻이다.
+'
+
+클래스 멤버를 선언할 때 타입 파라미터를 사용할 수 있는 지점은 `in`과 `out`으로 나뉜다.
+T 타입 파라미터를 선언하고 T를 사용하는 함수가 있는 클래스를 생각해 보자.
+T 함수가 반환 타입에 쓰인다면 T는 `out` 위치에 있다.
+
+이 함수는 T 타입의 값을 생산한다.
+
+T가 함수의 파라미터 타입에 쓰인다면, 이는 T는 `in` 위치에 있다. 그런 함수는 T 타입의 값을 소비한다.
+
+이제 `List<T>` 인터페이스를 보자. 코틀린 List는 읽기 전용이다. 따라서 그 안에는 T 타입의 원소를 반환하는 get 메소드는 있지만 리스트에 T 타입의 값을 추가하거나 리스트에 있는 기존 값을 변경하는 메소드는 없다.
+
+따라서 List는 T에 대해 공변적이다. 반면에 `MutableList<T>`에는 T를 받아서 그 타입의 값을 반환하는 메소드가 있다.
+
+컴파일러는 클래스가 공변적으로 선언된 경우 에러를 반환한다.
+
+`val`이나 `var` 키워드를 생성자 파라미터를 적는다면 게터나 세터를 정의하는 것과 같다. 읽기 전용 프로퍼티는 아웃 위치로만 있고, 변경 가능 프로퍼티는 둘다 해당된다.
+
+## 반공변성: 뒤집힌 하위 타입 관계
+
+`반공변성(contravariance)`은 공변성을 거울에 비친 상이라 할 수 있다.(?)
+
+예를 들어 `Comparator` 인터페이스를 살펴보면 이 인터페이스에는 `compare`라는 메소드가 있다. 이 메소드는 주어진 두 객체를 비교한다.
+
+```kotlin
+interface Comparator<in T> {
+    fun compare(e1: T, e2: T): Int { ... } // T를 "In" 위치에만 사용한다.
+}
+```
+
+이 인터페이스의 메소드는 T 타입의 값을 소비하기만 한다. 이는 T가 `in` 위치에서만 쓰인다는것이다. 그래서 T 앞에는 `in` 키워드를 붙여야만 한다.
+
+어떤 타입에 대해 Comparator를 구현한다면 그 타입의 하위 타입에 속하는 모든 값을 비교할 수 있다.
