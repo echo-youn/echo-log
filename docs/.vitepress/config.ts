@@ -88,7 +88,8 @@ const config = defineConfig({
                     { text: 'collection', link: '/kotlin/collection'},
                     { text: '산술 연산자 오버로딩', link: '/kotlin/arithmetic-operator-overloading' },
                     { text: '고차 함수', link: '/kotlin/higher-order-function' },
-                    { text: '제네릭스', link: '/kotlin/generics' }
+                    { text: '제네릭스', link: '/kotlin/generics' },
+                    { text: '어노테이션과 리플렉션', link: '/kotlin/annotation-reflection' }
                 ],
                 collapsed: true,
                 collapsible: true
