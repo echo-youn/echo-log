@@ -92,6 +92,8 @@ const config = defineConfig({
                     { text: '어노테이션과 리플렉션', link: '/kotlin/annotation-reflection' },
                     { text: 'DSL', link: '/kotlin/dsl' },
                     { text: '코루틴과 Async & Await', link: '/kotlin/coroutine-async-await' },
+                    { text: '코틀린 문서화(케이독)', link: '/kotlin/kdoc' },
+                    { text: '코틀린 에코시스템 소개', link: '/kotlin/eco-system' }
                 ],
                 collapsed: true,
                 collapsible: true
