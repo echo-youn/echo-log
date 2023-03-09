@@ -7,6 +7,7 @@ const GITHUB_BASE_REPOSITORY_NAME = '/'
 const LOGO_PATH = 'https://user-images.githubusercontent.com/39899731/201515448-b438b045-21ba-4028-8915-e2d7a9706d0e.png'
 
 const config = defineConfig({
+    lang: 'ko-KR',
     title: 'Echo Youn',
     description: `Echo's extra-ordinary journey`,
     base: GITHUB_BASE_REPOSITORY_NAME,
@@ -21,7 +22,6 @@ const config = defineConfig({
                     { text: 'Home', link: '/' },
                     { text: 'Clean Code', link: '/clean-code' }
                 ],
-                collapsible: true,
                 collapsed: true
             },
             {
@@ -33,7 +33,6 @@ const config = defineConfig({
                     { text: 'Explain #2', link: '/sql/mysql-explain-02' },
                     { text: 'Collation', link: '/sql/collation' }
                 ],
-                collapsible: true,
                 collapsed: true
             },
             {
@@ -48,7 +47,6 @@ const config = defineConfig({
                         ]
                     }
                 ],
-                collapsible: true,
                 collapsed: true
             },
             {
@@ -59,7 +57,6 @@ const config = defineConfig({
                     { text: '도커 정보 보기', link: '/docker/docker-info' },
                     { text: '우분투에 도커 설치하기', link: '/docker/docker-install-on-ubuntu' }
                 ],
-                collapsible: true,
                 collapsed: true
             },
             {
@@ -95,8 +92,7 @@ const config = defineConfig({
                     { text: '코틀린 문서화(케이독)', link: '/kotlin/kdoc' },
                     { text: '코틀린 에코시스템 소개', link: '/kotlin/eco-system' }
                 ],
-                collapsed: true,
-                collapsible: true
+                collapsed: true
             },
             {
                 text: 'etc',
@@ -118,7 +114,6 @@ const config = defineConfig({
                         ]
                     }
                 ],
-                collapsible: true,
                 collapsed: true
             },
             {
@@ -129,7 +124,6 @@ const config = defineConfig({
                     { text: 'Jvm Heap & GC', link: '/java/jvm-heap-GC' },
                 ],
                 collapsed: true,
-                collapsible: true
             },
             {
                 text: 'Spring Boot',
@@ -149,7 +143,6 @@ const config = defineConfig({
                         ]
                     }
                 ],
-                collapsible: true,
                 collapsed: true
             }
         ],
@@ -188,7 +181,7 @@ const config = defineConfig({
         }
     },
     lastUpdated: true,
-    cleanUrls: 'without-subfolders'
+    cleanUrls: true
 })
 
 export default config
