@@ -257,5 +257,68 @@ fun coroutineDispatcherExample() {
 
 ## suspend 키워드와 코틀린의 일시 중단함수 컴파일 방법
 
+코틀린은 코루틴 지원을 위해 `suspend` 키워드를 제공한다. 함수 정의 앞에 `suspend`를 넣으면 일시중단 함수를 만들 수 있다.
 
+예를 들어 launch 시 호출할 코드가 복잡하다면 별도의 suspend 함수를 정의해 호출하는것도 가능하다.
+
+```kotlin
+suspend fun yieldThreeTimes() {
+    log("1")
+    delay(1000)
+    yield()
+    log("2")
+    delay(1000)
+    yield()
+    log("3")
+    delay(1000)
+    yield()
+    log("4")
+}
+
+fun coroutineDispatcherExample() {
+    runBlocking {
+        launch {
+            log("main")
+        }
+
+
+        launch(Dispatchers.IO) {
+            log("IO")
+        }
+
+        launch(Dispatchers.Unconfined) {
+            log("Unconfined")
+        }
+
+        launch(Dispatchers.Default) {
+            log("Default")
+        }
+
+        launch(newSingleThreadContext("MyOwnThread")) {
+            log("MyOwnTread")
+        }
+
+        yieldThreeTimes() // 이전 예제에 추가됨
+    }
+}
+
+>> 2023-03-09T12:14:50.362050200Z: Thread[DefaultDispatcher-worker-1 @coroutine#3,5,main]: IO
+>> 2023-03-09T12:14:50.361050300Z: Thread[main @coroutine#4,5,main]: Unconfined
+>> 2023-03-09T12:14:50.399050Z: Thread[DefaultDispatcher-worker-1 @coroutine#5,5,main]: Default
+>> 2023-03-09T12:14:50.406050500Z: Thread[main @coroutine#1,5,main]: 1
+>> 2023-03-09T12:14:50.406050500Z: Thread[MyOwnThread @coroutine#6,5,main]: MyOwnTread
+>> 2023-03-09T12:14:50.417050600Z: Thread[main @coroutine#2,5,main]: main
+>> 2023-03-09T12:14:51.419327600Z: Thread[main @coroutine#1,5,main]: 2
+>> 2023-03-09T12:14:52.432196700Z: Thread[main @coroutine#1,5,main]: 3
+>> 2023-03-09T12:14:53.442378600Z: Thread[main @coroutine#1,5,main]: 4
+```
  
+일시 중단(suspend) 함수 안에서 yield를 해야 하는 경우 어떤 동작이 필요한지 보자.
+
+- 코루틴에 진입할 때와 코루틴에서 나갈 때 코루틴이 실행 중이던 상태를 저장하고 복구하는 등의 작업을 할 수 있어야 한다.
+- 현재 실행 중이던 위치를 저장하고 다시 코루틴이 재개될 때 해당 위치부터 실행을 재개할 수 있어야한다.
+- 다음에 어떤 코루틴을 실행할지 결정한다.
+
+이 중 마지막 동작은 코루틴 컨텍스트에 있는 디스패처가 하는 일이다. 일시 중단 함수를 컴파일하는 컴파일러는 앞의 두가지 작업을 할 수 있는 코드를 생성해내야 한다. 이때 코틀린은 컨티뉴에이션 패싱 스타일(`CPS, continuation passing style`) 변환과 상태 기계(`state machine`)을 활용해 코드를 생성해낸다.
+
+CPS 변환은 프로그램의 실행 중 특정 시점 이후에 진행해야 하는 내용을 별도의 함수로 뽑고(이런 함수를 컨티뉴에이션이라 부른다). 그 함수이게 현재 시점까지 실행한 결과를 넘겨서 처리하게 만드는 소스코드 변환 기술이다. 다음에 실행해야할 함수가 컨티뉴에이션이라는 함수로 전달되므로, 나중에 할일을 정확히 알 수 있고, 무엇을 넘겨야하는지도 명확하게 알 수 있다. 어떤 면에서 CPS는 콜백 스타일 프로그래밍과도 유사하다.
