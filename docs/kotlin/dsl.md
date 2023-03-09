@@ -15,12 +15,12 @@ DSL의 궁극적 목표는 코드의 가독성와 유지 보수성을 좋게 유
 
 |일반구문|간결한 구문|언어 특성|
 |--|--|--|
-|StringUtil.capitalize(s)|s.capitalize()|확장 함수|
-|1.to("one")|1 to "one"|중위 호출|
-|set.add(2)|set += 2|연산자 오버로딩|
-|map.get("key")|map["key"]|get 메소드에 대한 관례|
-|file.use({f -> f.read()})|file.use { it.read() }|람다를 괄호 밖으로 빼내는 관례|
-|sb.append("yes")<br/>sb.append("no")|with (sb) {<br/>append("yes")<br/>append("no")<br/>}|수신 객체 지정 람다|
+|```StringUtil.capitalize(s)```|```s.capitalize()```|확장 함수|
+|```1.to("one")```|```1 to "one"```|중위 호출|
+|```set.add(2)```|```set += 2```|연산자 오버로딩|
+|```map.get("key")```|```map["key"]```|get 메소드에 대한 관례|
+|```file.use({f -> f.read()})```|```file.use { it.read() }```|람다를 괄호 밖으로 빼내는 관례|
+|```sb.append("yes"); sb.append("no")```|```with (sb) { append("yes"); append("no"); }```|수신 객체 지정 람다|
 
 더 나아가 DSL 구축을 도와주는 코틀린 기능을 살펴본다.
 

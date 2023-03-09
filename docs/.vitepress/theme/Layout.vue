@@ -8,9 +8,6 @@ const { Layout } = DefaultTheme
 <template>
   <Layout>
     <template #doc-after>
-      <ClientOnly>
-        <Utterance />
-      </ClientOnly>
     </template>
     <!-- EMPTY -->
   </Layout>
