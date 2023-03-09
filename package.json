@@ -1,6 +1,6 @@
 {
   "name": "echo-log",
-  "version": "1.0.0",
+  "version": "1.0.50",
   "main": "index.ts",
   "author": "echo-youn",
   "license": "MIT",
@@ -10,9 +10,9 @@
     "docs:serve": "vitepress serve docs"
   },
   "devDependencies": {
-    "typescript": "^4.8.4",
-    "vitepress": "^1.0.0-alpha.32",
-    "vue": "^3.2.39"
+    "typescript": "^4.9.5",
+    "vitepress": "^1.0.0-alpha.50",
+    "vue": "^3.2.47"
   },
   "dependencies": {
     "@types/node": "^18.7.23"
