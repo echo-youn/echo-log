@@ -133,17 +133,17 @@ const config = defineConfig({
                 collapsed: true,
             },
             {
-                text: 'Spring Boot',
+                text: 'Spring',
                 items: [
-                    { text: 'Index', link: '/springBoot/' },
                     { text: 'Spring Security', link: '/springBoot/spring-security' },
                     { text: 'Servlet', link: '/springBoot/dispatcher-servlet' },
                     { text: 'Web filter', link: '/springBoot/web-filter' },
                     { text: 'Interceptor', link: '/springBoot/interceptor' },
                     {
                         text: 'JPA',
-                        link: '/springBoot/jpa/',
+                        link: '/spring/jpa/',
                         items: [
+                            { text: 'Hibernate and jpa', link: '/spring/jpa/hibernate-jpa' },
                             { text: 'Transactional', link: '/coming-soon' },
                             { text: 'Dirty check', link: '/coming-soon' },
                             { text: 'Reader DB', link: '/coming-soon' },
