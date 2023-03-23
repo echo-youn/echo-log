@@ -23,3 +23,11 @@ public static final String USE_SECOND_LEVEL_CACHE = "hibernate.cache.use_second_
 
 소스코드에서는 Cache 관련한 코드가 없는데 캐싱이 되고 있는 상황이었다.
 
+레거시 프로젝트에서 hibernate-ehcache가 불필요하게 사용되고 있고 삭제시 이슈 없고 정상적으로 동작해서 이렇게 종결...
+
+
+TransactionAspectSupport .currentTransactionStatus
+
+Transactional 삭제...
+
+프로젝트에 JPA와... Hibernate JDBC API를 혼용해서 쓰고 있어서 생기는 이슈였을까?
