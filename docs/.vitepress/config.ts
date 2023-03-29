@@ -37,7 +37,8 @@ const config = defineConfig({
                     { text: 'About Index', link: '/sql/about-index' },
                     { text: 'Explain #1', link: '/sql/mysql-explain-01' },
                     { text: 'Explain #2', link: '/sql/mysql-explain-02' },
-                    { text: 'Collation', link: '/sql/collation' }
+                    { text: 'Collation', link: '/sql/collation' },
+                    { text: 'Exchange Partition', link: '/sql/mysql-exchange-partition' },
                 ],
                 collapsed: true
             },
