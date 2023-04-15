@@ -90,7 +90,8 @@ const config = defineConfig({
                     { text: 'DSL', link: '/kotlin/dsl' },
                     { text: '코루틴과 Async & Await', link: '/kotlin/coroutine-async-await' },
                     { text: '코틀린 문서화(케이독)', link: '/kotlin/kdoc' },
-                    { text: '코틀린 에코시스템 소개', link: '/kotlin/eco-system' }
+                    { text: '코틀린 에코시스템 소개', link: '/kotlin/eco-system' },
+                    { text: 'Channel', link: '/kotlin/channel' }
                 ],
                 collapsed: true
             },
@@ -129,6 +130,7 @@ const config = defineConfig({
                 text: 'Spring Boot',
                 items: [
                     { text: 'Index', link: '/springBoot/' },
+                    { text: 'Spring Security', link: '/springBoot/spring-security' },
                     {
                         text: 'JPA',
                         link: '/springBoot/jpa/',
