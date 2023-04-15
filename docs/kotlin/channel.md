@@ -39,7 +39,21 @@ Channel은 BlockingQueue의 blocking put 대신 suspending send를 사용하고 
 채널은 큐와 다르게 큐에 더이상 데이터가 제공되지 않음을 `closed`상태로 나타낼 수 있습니다.
 그래서 Consumer 쪽에서 일반 for 반복문을 사용해 채널에서 요소를 수신하는 방법을 사용할 수 있습니다.
 
-<iframe src="https://pl.kotl.in/I2fv_VS3A?theme=darcula"></iframe>
+```kotlin:line-numbers {1}
+import kotlinx.coroutines.*
+import kotlinx.coroutines.channels.*
+
+fun main() = runBlocking {
+    val channel = Channel<Int>()
+    launch {
+        for (x in 1..5) channel.send(x * x)
+        channel.close() // we're done sending
+    }
+    // here we print received values using `for` loop (until the channel is closed)
+    for (y in channel) println(y)
+    println("Done!")
+}
+```
 
 공식 문서에 잘 설명이 나와있으니 더 자세한 내용은 살펴보면 될것 같고 제가 이번에 구현한 코드에 대해 공유하겠습니다.
 
