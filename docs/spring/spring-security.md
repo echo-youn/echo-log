@@ -20,7 +20,77 @@
 - DispatcherServlet
 - FilterChain
 
-## 서블렛 인증 관련 용어 및 구조
+
+## Servlet
+자바 프로그램 (함수, 클래스 등...)
+
+## DispatcherServlet
+많은 서블렛을 연결해주는 중앙의 서블렛이다.
+
+`DispatcherServlet`은 다른 서블렛과 마찬가지로 같은 서블레이여서, 정의되고 설정이나 web.xml에 매핑되어 있어야한다.
+
+DispatcherServlet은 스프링 설정에 따라 요청매핑, 뷰 만들기, 예외처리 등에 사용될 `위임 컴포넌트`를 찾습니다.
+
+다음 예시는 서블렛 컨테이너에 의해 자동으로 Dispatcher가 설정되고 등록되고 생성되는 과정을 보여줍니다.
+
+```kotlin{10}
+class MyWebApplicationInitializer : WebApplicationInitializer {
+
+    override fun onStartup(servletContext: ServletContext) {
+
+        // Load Spring web application configuration
+        val context = AnnotationConfigWebApplicationContext()
+        context.register(AppConfig::class.java)
+
+        // Create and register the DispatcherServlet
+        val servlet = DispatcherServlet(context)
+        val registration = servletContext.addServlet("app", servlet)
+        registration.setLoadOnStartup(1)
+        registration.addMapping("/app/*")
+    }
+}
+```
+
+Dispatcher가 제공해 주는 몇가지 기능과 기본 구현체들에 대해 적고 지나가보자.
+
+- HandlerMapping
+  - BeanNameUrlHandlerMapping
+  - RequestMappingHandlerMapping
+- HandlerAdapter
+  - HttpRequestHandlerAdapter
+    - RequestMappingHandlerAdapter
+  - SimpleControllerHandlerAdapter
+- HandlerExceptionResolver
+  - ExceptionHandlerExceptionResolver
+  - ResponseStatusExceptionResolver
+  - DefaultHandlerExceptionResolver
+- ViewResolver
+  - InternalResourceViewResolver
+- RequestToViewNameTranslator
+  - DefaultRequestToViewNameTranslator
+- MultipartResolver
+  - None(없음)
+- LocaleResolver
+  - AcceptHeaderLocaleResolver
+
+
+
+
+https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#web.servlet.spring-mvc
+스프링 프레임워크에서는 이렇게 지원하지만, 스프링 부트에서는 자체적으로 내장된 서블릿 컨테이너에 자동으로 후킹됩니다.
+
+정의된 ServletFilter와 서블릿가 알아서 자동으로 매핑됩니다. (RequestMapping 등...) https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#web.servlet.embedded-container.servlets-filters-listeners.beans
+
+Servlet이나 Filter, *Listener 서블릿들이 빈으로 등록되면 알아서 서블렛 컨테이너에 등록됩니다.
+
+## Servlet Container
+들어온 HTTP 요청에 대해서 HttpRequest 쓰레드를 생성해주고 서블렛에 매핑해준다.
+
+## Filter
+필터
+
+
+## 서블렛 인증 관련 용어 및 구조 설명
 
 ### SecurityContextHolder
 `Spring Security`에 의해 누가 인증됐는지를 저장하는 공간입니다.
