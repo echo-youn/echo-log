@@ -39,7 +39,7 @@ Channel은 BlockingQueue의 blocking put 대신 suspending send를 사용하고 
 채널은 큐와 다르게 큐에 더이상 데이터가 제공되지 않음을 `closed`상태로 나타낼 수 있습니다.
 그래서 Consumer 쪽에서 일반 for 반복문을 사용해 채널에서 요소를 수신하는 방법을 사용할 수 있습니다.
 
-```kotlin:line-numbers {1}
+```kotlin
 import kotlinx.coroutines.*
 import kotlinx.coroutines.channels.*
 

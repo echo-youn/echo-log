@@ -1,4 +1,4 @@
-import { defineConfig } from 'vitepress'
+import { defineConfig, MarkdownOptions } from 'vitepress'
 
 /**
  * This is for base url.
@@ -6,11 +6,17 @@ import { defineConfig } from 'vitepress'
 const GITHUB_BASE_REPOSITORY_NAME = '/'
 const LOGO_PATH = 'https://user-images.githubusercontent.com/39899731/201515448-b438b045-21ba-4028-8915-e2d7a9706d0e.png'
 
+// https://vitepress.dev/reference/site-config#markdown
+const markdownOptions: MarkdownOptions = {
+    lineNumbers: true,
+}
+
 const config = defineConfig({
     lang: 'ko-KR',
     title: 'Echo Youn',
     description: `Echo's extra-ordinary journey`,
     base: GITHUB_BASE_REPOSITORY_NAME,
+    markdown: markdownOptions,
     head: [
         ['link', { rel: 'icon', href: LOGO_PATH }], // <link rel="icon" href="LOGO_PATH" />
     ],

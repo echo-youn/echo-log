@@ -27,11 +27,11 @@
 ## DispatcherServlet
 많은 서블렛을 연결해주는 중앙의 서블렛이다.
 
-`DispatcherServlet`은 다른 서블렛과 마찬가지로 같은 서블레이여서, 정의되고 설정이나 web.xml에 매핑되어 있어야한다.
+`DispatcherServlet`은 다른 서블렛과 마찬가지로 같은 서블렛이여서, 정의되고 설정이나 web.xml에 매핑되어 있어야한다.
 
-DispatcherServlet은 스프링 설정에 따라 요청매핑, 뷰 만들기, 예외처리 등에 사용될 `위임 컴포넌트`를 찾습니다.
+`DispatcherServlet`은 스프링 설정에 따라 `HttpRequest Mapping`, `View Resolve`, `Exception Handler` 등을 `위임(Delegation)`하여 사용될 컴포넌트를 찾습니다.
 
-다음 예시는 서블렛 컨테이너에 의해 자동으로 Dispatcher가 설정되고 등록되고 생성되는 과정을 보여줍니다.
+다음 예시는 서블렛 컨테이너에 의해 자동으로 `Dispatcher`가 설정되고 등록되고 생성되는 과정을 보여줍니다.
 
 ```kotlin
 class MyWebApplicationInitializer : WebApplicationInitializer {
