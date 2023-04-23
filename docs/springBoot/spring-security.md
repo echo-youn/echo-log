@@ -51,20 +51,28 @@ class MyWebApplicationInitializer : WebApplicationInitializer {
 }
 ```
 
-다음은 DispatcherServlet을 web.xml로 설정하고 등록하고 생성하는 예시입니다.
+다음은 `DispatcherServlet`을 `web.xml`로 `Servlet`을 등록하고 `url-pattern`을 매핑하는 내용을 기재한 xml의 예시입니다.
 
 ```xml
 <web-app>
 
+    <!-- 
+        ServletContextListener의 구현체를 지정합니다.
+        이는 WAS 에서 서블릿 컨텍스트가 시작될때, 서블릿들을 RootContext에 적재하고 종료될때 서블릿들을 제거하는 역할을 합니다.
+        Spring boot에서는 @WebListner 어노테이션을 활용해 커스텀 리스너를 지정할수 있습니다.
+    -->
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
 
+    <!-- Dispatcher Servlet 생성시 파라미터로 넘길 값 -->
     <context-param>
         <param-name>contextConfigLocation</param-name>
+        <!-- 기본값은 다음과 같다. /WEB-INF/applicationContext.xml -->
         <param-value>/WEB-INF/app-context.xml</param-value>
     </context-param>
 
+    <!-- Dispatcher Servlet 정보 -->
     <servlet>
         <servlet-name>app</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -75,51 +83,121 @@ class MyWebApplicationInitializer : WebApplicationInitializer {
         <load-on-startup>1</load-on-startup>
     </servlet>
 
+    <!--
+         Servlet과 url pattern 매핑
+         /app 아래에 있는 모든 요청을 처리하겠다는 의미이다.
+         ex) *.do, /*, /
+    -->
     <servlet-mapping>
         <servlet-name>app</servlet-name>
         <url-pattern>/app/*</url-pattern>
     </servlet-mapping>
-
 </web-app>
-
 ```
 
 https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#web.servlet.spring-mvc
-스프링 프레임워크에서는 이렇게 지원하지만, 스프링 부트에서는 자체적으로 내장된 서블릿 컨테이너에 자동으로 후킹됩니다.
+스프링 프레임워크에서는 이렇게 지원하지만, 스프링 부트에서는 자체적으로 내장된 `서블릿 컨테이너`에 자동으로 후킹됩니다.
 
-정의된 ServletFilter와 서블릿가 알아서 자동으로 매핑됩니다. (RequestMapping 등...) https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#web.servlet.embedded-container.servlets-filters-listeners.beans
+정의된 `Servlet`, `Filter`, `*Listener 서블릿`들이 빈으로 등록되면 알아서 `서블렛 컨테이너`에 등록됩니다.
 
-Servlet이나 Filter, *Listener 서블릿들이 빈으로 등록되면 알아서 서블렛 컨테이너에 등록됩니다.
+https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#web.servlet.embedded-container.servlets-filters-listeners.beans
+
+
 
 ## Servlet Container
-들어온 HTTP 요청에 대해서 HttpRequest 쓰레드를 생성해주고 서블렛에 매핑해준다.
+들어온 HTTP 요청에 대해서 HttpRequest 쓰레드를 생성해주고 매핑된 서블렛에 매핑해준다.
 
-## Filter
-필터
+## Web Filter
+HTTP 요청 전과 후에 실행되는 컴포넌트입니다.
 
+### 예시 (Bealdung 참고)
 
-## 서블렛 인증 관련 용어 및 구조 설명
+::: code-group
+
+```java [TransactionFilter.java]
+@Component
+@Order(1)
+public class TransactionFilter implements Filter {
+
+    @Override
+    public void doFilter(
+        ServletRequest request, 
+        ServletResponse response, 
+        FilterChain chain) throws IOException, ServletException {
+ 
+        HttpServletRequest req = (HttpServletRequest) request;
+        LOG.info(
+          "Starting a transaction for req : {}", 
+          req.getRequestURI());
+ 
+        chain.doFilter(request, response);
+        LOG.info(
+          "Committing a transaction for req : {}", 
+          req.getRequestURI());
+    }
+
+    // other methods 
+}
+```
+
+```java [RequestResponseLoggingFilter.java]
+@Component
+@Order(2)
+public class RequestResponseLoggingFilter implements Filter {
+
+    @Override
+    public void doFilter(
+      ServletRequest request, 
+      ServletResponse response, 
+      FilterChain chain) throws IOException, ServletException {
+ 
+        HttpServletRequest req = (HttpServletRequest) request;
+        HttpServletResponse res = (HttpServletResponse) response;
+        LOG.info(
+          "Logging Request  {} : {}", req.getMethod(), 
+          req.getRequestURI());
+        chain.doFilter(request, response);
+        LOG.info(
+          "Logging Response :{}", 
+          res.getContentType());
+    }
+
+    // other methods
+}
+```
+
+```text [result]
+23:54:38 INFO  com.spring.demo.TransactionFilter - Starting Transaction for req :/users
+23:54:38 INFO  c.s.d.RequestResponseLoggingFilter - Logging Request  GET : /users
+...
+23:54:38 INFO  c.s.d.RequestResponseLoggingFilter - Logging Response :application/json;charset=UTF-8
+23:54:38 INFO  com.spring.demo.TransactionFilter - Committing Transaction for req :/users
+```
+
+:::
+
+## 서블렛 인증 관련 용어 및 구조
 
 ### SecurityContextHolder
-Spring Security가 누가 인증됐는지를 저장하는 공간입니다.
+`Spring Security`에 의해 누가 인증됐는지를 저장하는 공간입니다.
 
 ### SecurityContext
-SecurityContextHolder로 얻을수 있습니다. 그리고 여기엔 현재 인증된 유저가 저장되어 있습니다.
+`SecurityContextHolder`로 얻을수 있습니다.그리고 여기엔 현재 인증된 유저의 정보가 저장되어 있습니다.
 
 ### Authentication
-AuthenticationManager에 의해 입력되는 인증을 위해 사용자가 제공한 자격 증명 또는 현재 사용자의 자격증명입니다.
+유저가 인증정보를 `SecurityContext`에 저장되고 `AuthenticationManager`에 의해 입력 또는 생성되는 객체입니다.
 
 ### GrantedAuthority
-인증에 있는 부여된 권한입니다.
+`Authentication`에 있는 유저에게 부여된 권한 정보가 들어있는 객체입니다.
 
 ### AuthenticationManager
-Spring Security의 필터들이 인증을 수행해야하는 API를 명세하고 있다.
+`Spring Security`에 등록된 필터들이 어떻게 인증 단계를 동작해야하는지 정의되어있습니다.
 
 ### ProviderManager
-가장 흔히 사용되는 AuthenticationManger의 구현체이다.
+가장 흔히 사용되는 `AuthenticationManger`의 구현체이다.
 
 ### AuthenticationProvider
-ProviderManager가 특정 방식의 인증을 수행할때 주로 사용된다.
+`ProviderManager`가 특정 방식의 인증을 수행할때 주로 사용된다. ex. JwtAuthenticationProvider, DaoAuthenticationProvider 등..
 
 ### Request Credentials with AuthenticationEntryPoint
 클라이언트에게 인증정보를 요구할때 사용된다. (Login page로 리디렉트 또는 401 응답 등...)
@@ -127,6 +205,5 @@ ProviderManager가 특정 방식의 인증을 수행할때 주로 사용된다.
 ### AbstractAuthenticationProcessingFilter
 인증을 위한 기본 필터. 이것은 높은 수준의 인증 흐름과 조각이 함께 작동하는 방식에 대한 좋은 아이디어를 제공합니다.
 
-- 
 
 
