@@ -37,7 +37,8 @@ const config = defineConfig({
                     { text: 'About Index', link: '/sql/about-index' },
                     { text: 'Explain #1', link: '/sql/mysql-explain-01' },
                     { text: 'Explain #2', link: '/sql/mysql-explain-02' },
-                    { text: 'Collation', link: '/sql/collation' }
+                    { text: 'Collation', link: '/sql/collation' },
+                    { text: 'Exchange Partition', link: '/sql/mysql-exchange-partition' },
                 ],
                 collapsed: true
             },
@@ -133,17 +134,17 @@ const config = defineConfig({
                 collapsed: true,
             },
             {
-                text: 'Spring Boot',
+                text: 'Spring',
                 items: [
-                    { text: 'Index', link: '/springBoot/' },
-                    { text: 'Spring Security', link: '/springBoot/spring-security' },
-                    { text: 'Servlet', link: '/springBoot/dispatcher-servlet' },
-                    { text: 'Web filter', link: '/springBoot/web-filter' },
-                    { text: 'Interceptor', link: '/springBoot/interceptor' },
+                    { text: 'Spring Security', link: '/spring/spring-security' },
+                    { text: 'Servlet', link: '/spring/dispatcher-servlet' },
+                    { text: 'Web filter', link: '/spring/web-filter' },
+                    { text: 'Interceptor', link: '/spring/interceptor' },
                     {
                         text: 'JPA',
-                        link: '/springBoot/jpa/',
+                        link: '/spring/jpa/',
                         items: [
+                            { text: 'Hibernate and jpa', link: '/spring/jpa/hibernate-jpa' },
                             { text: 'Transactional', link: '/coming-soon' },
                             { text: 'Dirty check', link: '/coming-soon' },
                             { text: 'Reader DB', link: '/coming-soon' },
