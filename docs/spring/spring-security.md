@@ -14,7 +14,7 @@
 
 스프링 시큐리티를 이해하기 위해서는 다음을 기본적으로 이해하고 있어야한다.
 
-- [Servlet](/springBoot/dispatcher-servlet)
+- [Servlet](/spring/dispatcher-servlet)
 - Context Hierarchy
 - Servlet Container
 - DispatcherServlet
