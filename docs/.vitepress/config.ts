@@ -136,10 +136,10 @@ const config = defineConfig({
             {
                 text: 'Spring',
                 items: [
-                    { text: 'Spring Security', link: '/springBoot/spring-security' },
-                    { text: 'Servlet', link: '/springBoot/dispatcher-servlet' },
-                    { text: 'Web filter', link: '/springBoot/web-filter' },
-                    { text: 'Interceptor', link: '/springBoot/interceptor' },
+                    { text: 'Spring Security', link: '/spring/spring-security' },
+                    { text: 'Servlet', link: '/spring/dispatcher-servlet' },
+                    { text: 'Web filter', link: '/spring/web-filter' },
+                    { text: 'Interceptor', link: '/spring/interceptor' },
                     {
                         text: 'JPA',
                         link: '/spring/jpa/',
