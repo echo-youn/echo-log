@@ -19,6 +19,12 @@ const config = defineConfig({
     markdown: markdownOptions,
     head: [
         ['link', { rel: 'icon', href: LOGO_PATH }], // <link rel="icon" href="LOGO_PATH" />
+        ['script', { src: 'https://www.googletagmanager.com/gtag/js?id=G-SCG97TK6W1', async: true }],
+        ['script', {}, `window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-SCG97TK6W1');`],
     ],
     themeConfig: {
         sidebar: [
