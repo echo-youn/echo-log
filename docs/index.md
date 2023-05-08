@@ -3,8 +3,8 @@ layout: home
 
 hero:
   name: ECHO YOUN
-  text: Blog
-  tagline: Be happy!
+  text: Welcome to my blog. Enjoy it! ❤
+  tagline: Always be happy!
 #   image:
 #     src: /logo.png
 #     alt: VitePress

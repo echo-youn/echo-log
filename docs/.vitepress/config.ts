@@ -17,6 +17,7 @@ const config = defineConfig({
     description: `Echo's extra-ordinary journey`,
     base: GITHUB_BASE_REPOSITORY_NAME,
     markdown: markdownOptions,
+    appearance: 'dark',
     head: [
         ['link', { rel: 'icon', href: LOGO_PATH }], // <link rel="icon" href="LOGO_PATH" />
         ['script', { src: 'https://www.googletagmanager.com/gtag/js?id=G-SCG97TK6W1', async: true }],
@@ -39,8 +40,8 @@ const config = defineConfig({
             {
                 text: 'sql',
                 items: [
-                    { text: 'Index', link: '/sql/' },
-                    { text: 'About Index', link: '/sql/about-index' },
+                    // { text: 'Index', link: '/sql/' },
+                    // { text: 'About Index', link: '/sql/about-index' },
                     { text: 'Explain #1', link: '/sql/mysql-explain-01' },
                     { text: 'Explain #2', link: '/sql/mysql-explain-02' },
                     { text: 'Collation', link: '/sql/collation' },
@@ -65,7 +66,7 @@ const config = defineConfig({
             {
                 text: 'Docker',
                 items: [
-                    { text: 'Index', link: '/docker/' },
+                    // { text: 'Index', link: '/docker/' },
                     { text: '도커 이미지 조회가 느릴 때', link: '/docker/docker-image-prune' },
                     { text: '도커 정보 보기', link: '/docker/docker-info' },
                     { text: '우분투에 도커 설치하기', link: '/docker/docker-install-on-ubuntu' }
@@ -111,7 +112,7 @@ const config = defineConfig({
             {
                 text: 'etc',
                 items: [
-                    { text: 'Index', link: '/etc/' },
+                    // { text: 'Index', link: '/etc/' },
                     { text: 'Vim 복사 붙여넣기', link: '/etc/vim-copy-paste' },
                     { text: 'Git convention', link: '/etc/git-convention' },
                     { text: 'Javascript로 탭메뉴 만들기', link: '/etc/tab-menu' },
@@ -133,7 +134,7 @@ const config = defineConfig({
             {
                 text: 'Java',
                 items: [
-                    { text: 'Index', link: '/java/' },
+                    // { text: 'Index', link: '/java/' },
                     { text: 'Xerces 지옥 벗어나기', link: '/java/xerces-hell' },
                     { text: 'Jvm Heap & GC', link: '/java/jvm-heap-GC' },
                 ],
@@ -173,8 +174,8 @@ const config = defineConfig({
             next: '다음 페이지'
         },
         footer: {
-            message: 'Hi',
-            copyright: 'No Copy right'
+            message: 'Email: echo.youn@kakao.com',
+            copyright: 'no copy right on this documents'
         },
         socialLinks: [
             { icon: 'github', link: 'https://github.com/echo-youn/echo-log' },
