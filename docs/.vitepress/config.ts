@@ -122,6 +122,7 @@ const config = defineConfig({
                     { text: 'git branch pager 이슈', link: '/etc/git-branch-pager' },
                     { text: '우분투 한/영키 비주얼스튜디오 버그', link: '/etc/linux-vsc-alt-r' },
                     { text: 'DBeaver 힙 메모리 부족', link: '/etc/dbeaver-heap' },
+                    { text: 'Minio 도입기', link: '/etc/minio' },
                     {
                         text: 'TIL',
                         items: [

@@ -4,3 +4,5 @@ node_modules
 # vite press build output
 docs/.vitepress/dist/
 docs/.vitepress/cache/
+
+.idea/
