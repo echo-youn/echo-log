@@ -138,7 +138,7 @@ const config = defineConfig({
                     // { text: 'Index', link: '/java/' },
                     { text: 'Xerces 지옥 벗어나기', link: '/java/xerces-hell' },
                     { text: 'Jvm Heap & GC', link: '/java/jvm-heap-GC' },
-                    { text: '필드 동적으로 제외시키기', link: '/javafield-exclude' }
+                    { text: '필드 동적으로 제외시키기', link: '/java/field-exclude' }
                 ],
                 collapsed: true,
             },
