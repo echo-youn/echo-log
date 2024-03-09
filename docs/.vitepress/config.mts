@@ -1,4 +1,4 @@
-import { defineConfig, MarkdownOptions } from 'vitepress'
+import { defineConfig, HeadConfig, MarkdownOptions } from 'vitepress'
 
 /**
  * This is for base url.
@@ -11,22 +11,23 @@ const markdownOptions: MarkdownOptions = {
     lineNumbers: true,
 }
 
+const headConfig: HeadConfig[] = [
+    ['link', { rel: 'icon', href: LOGO_PATH }], // <link rel="icon" href="LOGO_PATH" />
+    ['script', { src: 'https://www.googletagmanager.com/gtag/js?id=G-SCG97TK6W1', async: 'true' }],
+    ['script', {}, `window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-SCG97TK6W1');`],
+]
+
 const config = defineConfig({
     lang: 'ko-KR',
     title: 'Echo Youn',
     description: `Echo's extra-ordinary journey`,
+    head: headConfig,
     base: GITHUB_BASE_REPOSITORY_NAME,
     markdown: markdownOptions,
     appearance: 'dark',
-    head: [
-        ['link', { rel: 'icon', href: LOGO_PATH }], // <link rel="icon" href="LOGO_PATH" />
-        ['script', { src: 'https://www.googletagmanager.com/gtag/js?id=G-SCG97TK6W1', async: true }],
-        ['script', {}, `window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-SCG97TK6W1');`],
-    ],
     themeConfig: {
         sidebar: [
             {
