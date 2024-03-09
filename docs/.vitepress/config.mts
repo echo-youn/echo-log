@@ -9,6 +9,9 @@ const LOGO_PATH = 'https://user-images.githubusercontent.com/39899731/201515448-
 // https://vitepress.dev/reference/site-config#markdown
 const markdownOptions: MarkdownOptions = {
     lineNumbers: true,
+    image: {
+        lazyLoading: true
+    }
 }
 
 const headConfig: HeadConfig[] = [
@@ -125,6 +128,7 @@ const config = defineConfig({
                     { text: 'DBeaver 힙 메모리 부족', link: '/etc/dbeaver-heap' },
                     { text: 'Minio 도입기', link: '/etc/minio' },
                     { text: 'Certbot으로 인증서 적용 및 자동갱신 등록', link: '/etc/certbot' },
+                    { text: '개발환경 구축 일기', link: '/etc/dev-env' },
                     {
                         text: 'TIL',
                         items: [
