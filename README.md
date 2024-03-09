@@ -3,9 +3,9 @@ Hello, World!
 
 # HOW TO RUN
 ``` sh
-$ yarn docs:dev
+$ npm run docs:dev
 
-#   $ yarn run
+#   $ npm run
 #
 #   - docs:build
 #      vitepress build docs
