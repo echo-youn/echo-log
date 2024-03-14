@@ -156,6 +156,7 @@ const config = defineConfig({
                     { text: 'Servlet', link: '/spring/dispatcher-servlet' },
                     { text: 'Web filter', link: '/spring/web-filter' },
                     { text: 'Interceptor', link: '/spring/interceptor' },
+                    { text: '스프링부트 3.2 JarLauncher 이슈', link: '/spring/spring-3-2' },
                     {
                         text: 'JPA',
                         link: '/spring/jpa/',
