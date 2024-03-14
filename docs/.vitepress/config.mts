@@ -202,11 +202,16 @@ const config = defineConfig({
             pattern: 'https://github.com/echo-youn/echo-log/edit/main/docs/:path',
             text: 'Edit this page on GitHub'
         },
-        lastUpdatedText: 'Updated Date',
-        algolia: {
-            appId: 'KUIWK09R9Y',
-            apiKey: 'e7c343fceec7677429432debe8d5ad53',
-            indexName: 'vitepress'
+        lastUpdated: {
+            text: 'Updated Date'
+        },
+        search: {
+            provider: 'local',
+            // options: {
+            //     appId: 'KUIWK09R9Y',
+            //     apiKey: 'e7c343fceec7677429432debe8d5ad53',
+            //     indexName: 'vitepress'
+            // }
         }
     },
     lastUpdated: true,
