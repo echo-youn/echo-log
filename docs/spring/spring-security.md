@@ -183,3 +183,26 @@ public class SecurityConfig {
     }
 }
 ```
+
+## OncePerRequestFilter로 구현
+
+```kotlin
+    addFilterBefore<UsernamePasswordAuthenticationFilter>(
+        JwtTokenFilter(jwtTokenService, userService)
+    )
+
+
+SecurityContextHolder.getContext().authentication = UsernamePasswordAuthenticationToken(
+          subject,
+        credential,
+        listOf(
+            SimpleGrantedAuthority(role)
+        )
+    )
+```
+
+## 참고 링크
+// todo
+- https://velog.io/@mindfulness_22/%EC%9E%90%EB%8F%99-%EB%A1%9C%EA%B7%B8%EC%9D%B8-%EA%B8%B0%EB%8A%A5-%EA%B5%AC%ED%98%84-with-remember-me
+- https://codevang.tistory.com/277
+- 
