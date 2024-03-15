@@ -157,6 +157,8 @@ const config = defineConfig({
                     { text: 'Web filter', link: '/spring/web-filter' },
                     { text: 'Interceptor', link: '/spring/interceptor' },
                     { text: '스프링부트 3.2 JarLauncher 이슈', link: '/spring/spring-3-2' },
+                    { text: '카페인 캐시 적용', link: '/spring/local-cache-caffeine' },
+                    { text: '레디스 캐시 적용', link: '/spring/remote-cache-redis' },
                     {
                         text: 'JPA',
                         link: '/spring/jpa/',
