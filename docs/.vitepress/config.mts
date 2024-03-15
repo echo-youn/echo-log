@@ -21,6 +21,7 @@ const headConfig: HeadConfig[] = [
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-SCG97TK6W1');`],
+    ['script', {async: 'true', src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4911149630505567', crossorigin: 'anonymous'}]
 ]
 
 const config = defineConfig({
