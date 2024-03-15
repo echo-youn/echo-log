@@ -120,4 +120,66 @@ Servlet이나 Filter, *Listener 서블릿들이 빈으로 등록되면 알아서
 인증을 위한 기본 필터. 이것은 높은 수준의 인증 흐름과 조각이 함께 작동하는 방식에 대한 좋은 아이디어를 제공합니다.
 
 
+## AuthenticationProvider를 구현해 인증 하기
 
+### CustomAuthenticationProvider 구현
+
+`AbstractAuthenticationProcessingFilter`가 `Authentication` 객체를 만들어주면 `AuthenticationManager`가 받아 인증을 한다.
+
+이때 `AuthenticationManager`는 `Provider`를 갖고 인증을 하므로 우리가 그 부분을 구현하는거다. 
+
+```java
+@Component
+public class CustomAuthenticationProvider implements AuthenticationProvider {
+
+    @Override
+    public Authentication authenticate(final Authentication authentication) throws AuthenticationException {
+        final String name = authentication.getName();
+        final String password = authentication.getCredentials().toString();
+        if (!"admin".equals(name) || !"system".equals(password)) {
+            return null;
+        }
+        return authenticateAgainstThirdPartyAndGetAuthentication(name, password);
+    }
+
+    @Override
+    public boolean supports(Class<?> authentication) {
+        return authentication.equals(UsernamePasswordAuthenticationToken.class);
+    }
+    
+    private static UsernamePasswordAuthenticationToken authenticateAgainstThirdPartyAndGetAuthentication(String name, String password) {
+      final List<GrantedAuthority> grantedAuths = new ArrayList<>();
+      grantedAuths.add(new SimpleGrantedAuthority("ROLE_USER"));
+      final UserDetails principal = new User(name, password, grantedAuths);
+      return new UsernamePasswordAuthenticationToken(principal, password, grantedAuths);
+    }
+}
+```
+
+### Security Manager에 등록
+
+```java
+@Configuration
+@EnableWebSecurity
+public class SecurityConfig {
+
+    @Autowired
+    private CustomAuthenticationProvider authProvider;
+
+    @Bean
+    public AuthenticationManager authManager(HttpSecurity http) throws Exception {
+        AuthenticationManagerBuilder authenticationManagerBuilder = 
+            http.getSharedObject(AuthenticationManagerBuilder.class);
+        authenticationManagerBuilder.authenticationProvider(authProvider);
+        return authenticationManagerBuilder.build();
+    }
+
+    @Bean
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+        return http.authorizeHttpRequests(request -> request.anyRequest()
+                .authenticated())
+            .httpBasic(Customizer.withDefaults())
+            .build();
+    }
+}
+```
