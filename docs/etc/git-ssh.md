@@ -2,7 +2,6 @@
 
 Github을 git repository로 사용할때 `ssh` 방식으로 사용하는 법을 공유합니다.
 
-## 키 만들기
 ssh키를 만드는 방법은 Windows 환경과 타 운영체제의 환경과 약간 다릅니다.
 
 우선, Windows 환경에서는 putty로 ssh키를 생성 할 수도 있지만 이 방법보다는 `git-bash`를 설치하여 `ssh-keygen` 패키지를 사용하여 만드는 방법을 추천합니다.
@@ -10,6 +9,23 @@ ssh키를 만드는 방법은 Windows 환경과 타 운영체제의 환경과 �
 윈도우 설치 방법은 최하단에 추가로 적어 놓고 설치 후 진행 합니다.
 
 이제 mac은 터미널, windows는 깃배시를 실행한 뒤 `ssh-keygen`을 실행합니다.
+
+
+## Windows에서 Git Bash 설치하기
+
+[**설치 파일 경로**](https://git-scm.com/downloads)
+
+위 링크로 접속해 본인의 환경에 맞는 설치파일을 다운로드합니다. 이번에는 Windows를 선택합니다.
+
+약관에 대해 동의 한 뒤 설치 경로를 지정해 주는데 다 기본으로 설정되어있는 옵션대로 설치하면 `git-bash`, `git-GUI`가 설치가 됩니다.
+
+## SSH 키 만들기 
+
+::: danger
+
+파일명 `id_rsa`, `id_rsa.pub`으로 키가 만들어지는데 기존에 같은 이름의 키가 있다면 덮어씌워지니 주의한다.
+
+:::
 
 ```shell
 $ ssh-keygen
@@ -47,8 +63,6 @@ drwxr-x--- 34 echo echo 4.0K 11월 13 22:41 ..
 
 편의상 `passphrase`는 비워서 사용하기도 한다.
 
-이제 파일명이 `id_rsa`로 키가 만들어지는데 기존에 같은 이름의 키가 있다면 덮어씌워지니 이점만 주의한다.
-
 아래 `id_rsa`와 `id_rsa.pub` 둘 중 `id_rsa`는 절대 다른 곳에 공유하면 안되는 키니 앞으로 다른곳에 입력해야하는 키라면 `id_rsa.pub`을 복사 붙여넣기 하면 된다.
 
 ## Github 계정에 ssh 키 적용하기
@@ -63,13 +77,3 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCCX+K5dB1UUkJtO/u0L8Nnce4EbY0ce3MF8MMZm8rQ
 이제 레파지토리의 Setting 말고 깃헙 계정의 Settings에 들어가 `SSH and GPG keys` 메뉴에 들어간다. `New SSH Key`로 위에서 복사한 키를 붙여넣고 저장하면 적용 완료된다. 
 
 ![스크린샷](https://user-images.githubusercontent.com/39899731/201527294-6045049f-c23f-49ef-98df-7238c34b424c.png)
-
-
-
-## Windows에서 Git Bash 설치하기
-
-[**설치 파일 경로**](https://git-scm.com/downloads)
-
-위 링크로 접속해 본인의 환경에 맞는 설치파일을 다운로드합니다. 이번에는 Windows를 선택합니다.
-
-약관에 대해 동의 한 뒤 설치 경로를 지정해 주는데 다 기본으로 설정되어있는 옵션대로 설치하면 `git-bash`, `git-GUI`가 설치가 됩니다.
