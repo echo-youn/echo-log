@@ -161,6 +161,7 @@ const config = defineConfig({
                     { text: '카페인 캐시 적용', link: '/spring/local-cache-caffeine' },
                     { text: '레디스 캐시 적용', link: '/spring/remote-cache-redis' },
                     { text: 'GlobalExceptionHandler', link: '/spring/global-exception-handler' },
+                    { text: '프로퍼티 암호로 관리하기 Jasypt', link: '/spring/jasypt' },
                     {
                         text: 'JPA',
                         link: '/spring/jpa/',
