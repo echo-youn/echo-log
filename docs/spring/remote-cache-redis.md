@@ -20,7 +20,7 @@ implementation("org.springframework.boot:spring-boot-starter-data-redis")
 
 # 설정
 
-## Auto Configuration
+## Auto Configuration 로 설정하기
 
 ::: code-group
 ```yaml [application.yml]
@@ -35,15 +35,15 @@ spring:
 
 ```kotlin [Service.kt]
 class SampleService(
-    private val stringRedisTemplate: StringRedisTemplate // 기본 생성되는 Bean을 주입받아 사용7
+    private val stringRedisTemplate: StringRedisTemplate // 기본 생성되는 Bean을 주입받아 사용
 )
 ```
 
 :::
 
-## Lettuce Bean 설정
+## Lettuce Bean 으로 설정하기
 
-### LettuceConnectionFactory Cluster mode
+### LettuceConnectionFactory Cluster mode 인 경우
 ```kotlin
 fun buildRedisClusterConfiguration(): LettuceClientConfiguration {
         return LettuceClientConfiguration.builder()
@@ -76,7 +76,7 @@ fun redisConnectionFactory(): LettuceConnectionFactory {
 }
 ```
 
-### LettuceConnectionFactory Standalone mode
+### LettuceConnectionFactory Standalone mode 인 경우
 ```kotlin
 @Bean
 fun redisConnectionFactory(): LettuceConnectionFactory {
@@ -91,7 +91,7 @@ fun redisConnectionFactory(): LettuceConnectionFactory {
 }
 ```
 
-### CacheManager
+### CacheManager 설정
 ```kotlin
 @Bean
 fun remoteCacheManager(redisConnectionFactory: RedisConnectionFactory): CacheManager {
@@ -119,7 +119,7 @@ fun remoteCacheManager(redisConnectionFactory: RedisConnectionFactory): CacheMan
 }
 ```
 
-## 사용할때
+## 위에서 설정한 캐시매니저로 캐싱하기
 
 ```kotlin
 @Cacheable(value = ["cacheKey"], key = "#id", cacheManager = "remoteCacheManager")
