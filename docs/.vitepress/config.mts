@@ -11,7 +11,7 @@ const markdownOptions: MarkdownOptions = {
     lineNumbers: true,
     image: {
         lazyLoading: true
-    }
+    },
 }
 
 const headConfig: HeadConfig[] = [
@@ -157,7 +157,7 @@ const config = defineConfig({
                     { text: 'Servlet', link: '/spring/dispatcher-servlet' },
                     { text: 'Web filter', link: '/spring/web-filter' },
                     { text: 'Interceptor', link: '/spring/interceptor' },
-                    { text: '스프링부트 3.2 JarLauncher 이슈', link: '/spring/spring-3-2' },
+                    { text: '스프링부트 2.7.5에서 3.2로 업데이트', link: '/spring/spring-3-2' },
                     { text: '카페인 캐시 적용', link: '/spring/local-cache-caffeine' },
                     { text: '레디스 캐시 적용', link: '/spring/remote-cache-redis' },
                     { text: 'GlobalExceptionHandler', link: '/spring/global-exception-handler' },
