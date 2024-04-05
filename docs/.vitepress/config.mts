@@ -178,6 +178,15 @@ const config = defineConfig({
                     }
                 ],
                 collapsed: true
+            },
+            {
+                text: 'Ansible',
+                items: [
+                    { text: 'Installation', link: '/ansible/installation' },
+                    { text: 'Inventory', link: '/ansible/inventory' },
+                    { text: 'Playbook & Modules', link: '/ansible/playbook-modules' },
+                ],
+                collapsed: true
             }
         ],
         logo: LOGO_PATH,
