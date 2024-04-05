@@ -185,6 +185,7 @@ const config = defineConfig({
                     { text: 'Installation', link: '/ansible/installation' },
                     { text: 'Inventory', link: '/ansible/inventory' },
                     { text: 'Playbook & Modules', link: '/ansible/playbook-modules' },
+                    { text: 'Practice', link: '/ansible/practice' },
                 ],
                 collapsed: true
             }
