@@ -130,6 +130,7 @@ const config = defineConfig({
                     { text: 'Minio 도입기', link: '/etc/minio' },
                     { text: 'Certbot으로 인증서 적용 및 자동갱신 등록', link: '/etc/certbot' },
                     { text: '개발환경 구축 일기', link: '/etc/dev-env' },
+                    { text: '라즈베리파이 버전 업그레이드', link: '/etc/migration-raspberry' },
                     {
                         text: 'TIL',
                         items: [

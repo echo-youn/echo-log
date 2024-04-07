@@ -96,4 +96,41 @@ $ ps -ef
 
 ### Nginx 마이그레이션
 
-1. 
+1. nginx의 설정 파일을 옮긴다. 나는 nginx의 기본 경로로만 사용했기 때문에 큰 어려움없이 마이그레이션 했다.  
+```shell
+$ scp -r /etc/nginx username@hostname:/etc # user에 권한이 없다면 user home에 복사한뒤 로그인하여 복사한다.  
+
+# certbot으로 추가한 SSL 인증서들도 복사한다.
+$ scp -r /etc/letsencrypt  username@hostname:/etc
+```
+
+2. nginx를 도커 컨테이너로 마이그레이션 준비를 했다. docker compose를 활용해 마이그레이션했다.
+```yaml
+name: nginx-alb
+
+services:
+  app:
+    image: nginx:stable-alpine3.17-slim
+    volumes:
+      - type: bind
+        source: /etc/nginx
+        target: /etc/nginx
+        read_only: true
+      - type: bind
+        source: /etc/letsencrypt
+        target: /etc/letsencrypt
+        read_only: true
+    ports:
+      - "80:80"
+      - "443:443"
+```
+
+3. `docker compose up -d`를 실행해 정상 동작하는지 확인해 정상 동작 확인했다.
+
+### Certbot 마이그레이션
+
+1. certbot은 항상 실행되지 않고 cron을 통해 일정 주기로 실행되는 프로세스이므로 도커 컨테이너로 사용하지 않고 패키지 매니저로 설치한다.
+2. certbot을 설치해 준다. (별도의 certbot 설정 파일들이 있었다면 설정 파일들을 복사해온다.) [설치 방법](/etc/certbot)
+3. nginx가 머신에 설치되어있어야해서 docker를 종료후 프레미스에 설치해 새로 다 다시 만들어줬다.
+
+### ufw를 설치한뒤 443, 80 포트를 오픈해준다.
