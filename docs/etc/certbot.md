@@ -20,7 +20,14 @@ wildcard와 default 둘 중에 wildcard가 더 편하지만 이 문서에서는 
 
 서버로 접속해 snapd를 설치한다. certbot를 사용함에 있어서 해당 패키지에 강한 의존성이 있는것 같다.
 
-내가 사용할 Ubuntu 배포판에서는 snapd 가 미리 설치되어있다.
+```shell
+$ sudo apt update
+$ sudo apt install snapd
+
+# snapd의 최신버전을 다운로드 받기 위해 snap에서 core를 설치한다.
+$ sudo snap install core
+core 16-2.61.2 from Canonical✓ installed
+```
 
 ## 기존에 있는 Certbot을 다 삭제
 
