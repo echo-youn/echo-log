@@ -77,6 +77,8 @@ kube-system   kube-proxy-56drc                   1/1     Running   0          4m
 kube-system   kube-scheduler-minikube            1/1     Running   0          4m23s
 kube-system   storage-provisioner                1/1     Running   0          4m8s
 
+$ minikube dashboard
+
 ```
 
 kubectl 설치
