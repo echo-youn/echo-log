@@ -74,7 +74,8 @@ const config = defineConfig({
                     // { text: 'Index', link: '/docker/' },
                     { text: '도커 이미지 조회가 느릴 때', link: '/docker/docker-image-prune' },
                     { text: '도커 정보 보기', link: '/docker/docker-info' },
-                    { text: '우분투에 도커 설치하기', link: '/docker/docker-install-on-ubuntu' }
+                    { text: '우분투에 도커 설치하기', link: '/docker/docker-install-on-ubuntu' },
+                    { text: '라즈베리파이에 minikube 설치', link: '/docker/minikube' }
                 ],
                 collapsed: true
             },
@@ -136,7 +137,8 @@ const config = defineConfig({
                         items: [
                             { text: '기능이 넘쳐나는 API가 좋을까? 요구사항에 딱 맞는 API가 좋을까?', link: '/etc/til/api-design' }
                         ]
-                    }
+                    },
+                    { text: 'node exporter 추가', link: '/etc/node-exporter' },
                 ],
                 collapsed: true
             },
