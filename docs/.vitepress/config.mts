@@ -191,6 +191,13 @@ const config = defineConfig({
                     { text: 'Practice', link: '/ansible/practice' },
                 ],
                 collapsed: true
+            },
+            {
+                text: 'Kubernetes',
+                items: [
+                    { text: 'AWS EKS 에 Prometheus 헬름차트로 구성', link: '/kubernetes/prometheus-eks-helm' },
+                ],
+                collapsed: true
             }
         ],
         logo: LOGO_PATH,
