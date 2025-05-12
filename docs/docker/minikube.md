@@ -45,6 +45,7 @@ $ sudo install minikube-linux-arm64 /usr/local/bin/minikube && rm minikube-linux
 
 cluter 시작
 ```aiignore
+# --listen-address=0.0.0.0 옵션 추가시 remote access 가능
 $ minikube start
 😄  minikube v1.35.0 on Raspbian 12.10 (arm64)
 ✨  Automatically selected the docker driver. Other choices: none, ssh
