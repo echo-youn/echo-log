@@ -99,6 +99,14 @@ prometheus:
   prometheusSpec:
     serviceMonitorSelectorNilUsesHelmValues: false
     podMonitorSelectorNilUsesHelmValues: false
+
+## kube-state-metrics 로그 남기기
+kubelet:
+  serviceMonitor:
+     cAdvisorMetricRelabelings:
+#      - sourceLabels: [__name__]
+#        action: drop
+#        regex: 'container_spec.*'
 ```
 
 ## 4. 헬름 차트 설치
