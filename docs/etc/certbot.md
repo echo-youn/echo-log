@@ -190,3 +190,9 @@ $ sudo certbot renew --dry-run
 ## SSL 인증서 되는지 확인
 
 확인해보자!!
+
+
+## 수동으로 DNS TXT로 인증서 발급!
+```
+certbot certonly -d local.echo-youn.com --manual --preferred-challenges dns
+```
