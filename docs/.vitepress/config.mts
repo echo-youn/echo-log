@@ -183,6 +183,13 @@ const config = defineConfig({
                 collapsed: true
             },
             {
+                text: 'Nodejs',
+                items: [
+                    { text: 'Node TLS issue', link: '/nodejs/npm-tls-issue' },
+                ],
+                collapsed: true
+            },
+            {
                 text: 'Ansible',
                 items: [
                     { text: 'Installation', link: '/ansible/installation' },
