@@ -139,7 +139,7 @@ const config = defineConfig({
                         ]
                     },
                     { text: 'node exporter 추가', link: '/etc/node-exporter' },
-                    { text: 'Cloudflare에서 TLS 인증서 발급받고 적용하기',  link: '/etc/cloudflare-tls' },
+                    { text: 'Cloudflare에서 Origin Server TLS 인증서 발급받고 적용하기',  link: '/etc/cloudflare-tls' },
                 ],
                 collapsed: true
             },

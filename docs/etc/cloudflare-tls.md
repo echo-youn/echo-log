@@ -1,6 +1,8 @@
-# Cloudflare에서 TLS 인증서 발급
+# Cloudflare에서 Origin Server TLS 인증서 발급
 
 ## 네임서버를 Cloudflare로 등록
+Origin Server 인증서란 Cloudflare와 Origin Server와 통신함에 있어서 암호화하는 인증서를 말한다.
+
 Cloudflare 계정에 접속하여 `Account Home`에 접속한다.
 
 그 후 `Domains` 탭에서 `Onboard a domain`을 눌러 네임서버를 연결할 도메인을 입력한다.
