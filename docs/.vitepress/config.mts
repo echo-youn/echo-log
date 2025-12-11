@@ -140,7 +140,8 @@ const config = defineConfig({
                     },
                     { text: 'node exporter 추가', link: '/etc/node-exporter' },
                     { text: 'Cloudflare에서 Origin Server TLS 인증서 발급받고 적용하기',  link: '/etc/cloudflare-tls' },
-                    { text: '', link: '/etc/nginx-proxy-manager' }
+                    { text: 'nginx proxy manager 설치', link: '/etc/nginx-proxy-manager' },
+                    { text: 'portainer 설치', link: '/etc/portainer' },
                 ],
                 collapsed: true
             },
