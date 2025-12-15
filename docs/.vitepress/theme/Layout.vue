@@ -11,7 +11,7 @@ const { Layout } = DefaultTheme
       <ins class="adsbygoogle"
            style="display:block"
            data-ad-format="fluid"
-           data-ad-layout-key="-6t+ed+2i-1n-4w"
+           data-ad-layout-key="-7m+eo+1+2-5"
            data-ad-client="ca-pub-4911149630505567"
            data-ad-slot="9280525341"></ins>
     </template>
