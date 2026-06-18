@@ -169,6 +169,7 @@ const config = defineConfig({
                     { text: 'Web filter', link: '/spring/web-filter' },
                     { text: 'Interceptor', link: '/spring/interceptor' },
                     { text: '스프링부트 2.7.5에서 3.2로 업데이트', link: '/spring/spring-3-2' },
+                    { text: 'Spring Boot 3에서 4로 마이그레이션하기', link: '/spring/spring-boot-4-migration' },
                     { text: '카페인 캐시 적용', link: '/spring/local-cache-caffeine' },
                     { text: '레디스 캐시 적용', link: '/spring/remote-cache-redis' },
                     { text: 'GlobalExceptionHandler', link: '/spring/global-exception-handler' },
