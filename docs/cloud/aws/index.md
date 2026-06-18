@@ -13,3 +13,5 @@
 [Auto Scaling Group](/cloud/aws/solution-architect-associate/auto-scailing-group)
 
 [Convertible Rereserved Instance](/cloud/aws/solution-architect-associate/convertible-reserved-ec2)
+
+[EC2 Spot Fleet GitLab Runner 구성](/cloud/aws/gitlab-runner-spot-fleet)

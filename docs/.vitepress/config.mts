@@ -63,7 +63,8 @@ const config = defineConfig({
                         text: 'AWS',
                         link: '/cloud/aws/',
                         items: [
-                            { text: 'Resource', link: '/cloud/aws/resources/' }
+                            { text: 'Resource', link: '/cloud/aws/resources/' },
+                            { text: 'EC2 Spot Fleet GitLab Runner 구성', link: '/cloud/aws/gitlab-runner-spot-fleet' }
                         ]
                     }
                 ],
