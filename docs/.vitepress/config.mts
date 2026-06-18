@@ -56,6 +56,21 @@ const config = defineConfig({
                 collapsed: true
             },
             {
+                text: 'Home Network',
+                items: [
+                    { text: 'Home Network', link: '/home-network/' },
+                    { text: 'Nginx proxy manager 설치기', link: '/home-network/nginx-proxy-manager' },
+                    { text: 'Certbot', link: '/home-network/certbot' },
+                    { text: 'Cloudflare Origin TLS', link: '/home-network/cloudflare-tls' },
+                    { text: 'Minio 도입기', link: '/home-network/minio' },
+                    { text: 'Portainer 설치', link: '/home-network/portainer' },
+                    { text: 'Node exporter 설치', link: '/home-network/node-exporter' },
+                    { text: '라즈베리파이 업그레이드', link: '/home-network/migration-raspberry' },
+                    { text: '개발환경 구축기', link: '/home-network/dev-env' },
+                ],
+                collapsed: true
+            },
+            {
                 text: 'Cloud',
                 items: [
                     { text: '클라우드 비교', link: '/cloud/comparision' },
@@ -132,10 +147,10 @@ const config = defineConfig({
                     { text: '우분투 한/영키 비주얼스튜디오 버그', link: '/etc/linux-vsc-alt-r' },
                     { text: 'VPN 환경에서 WSL MTU 문제 해결하기', link: '/etc/wsl-vpn-mtu' },
                     { text: 'DBeaver 힙 메모리 부족', link: '/etc/dbeaver-heap' },
-                    { text: 'Minio 도입기', link: '/etc/minio' },
-                    { text: 'Certbot으로 인증서 적용 및 자동갱신 등록', link: '/etc/certbot' },
-                    { text: '개발환경 구축 일기', link: '/etc/dev-env' },
-                    { text: '라즈베리파이 버전 업그레이드', link: '/etc/migration-raspberry' },
+                    { text: 'Minio 도입기', link: '/home-network/minio' },
+                    { text: 'Certbot으로 인증서 적용 및 자동갱신 등록', link: '/home-network/certbot' },
+                    { text: '개발환경 구축 일기', link: '/home-network/dev-env' },
+                    { text: '라즈베리파이 버전 업그레이드', link: '/home-network/migration-raspberry' },
                     {
                         text: 'TIL',
                         items: [
@@ -143,9 +158,9 @@ const config = defineConfig({
                         ]
                     },
                     { text: 'node exporter 추가', link: '/etc/node-exporter' },
-                    { text: 'Cloudflare에서 Origin Server TLS 인증서 발급받고 적용하기',  link: '/etc/cloudflare-tls' },
-                    { text: 'nginx proxy manager 설치', link: '/etc/nginx-proxy-manager' },
-                    { text: 'portainer 설치', link: '/etc/portainer' },
+                    { text: 'Cloudflare에서 Origin Server TLS 인증서 발급받고 적용하기',  link: '/home-network/cloudflare-tls' },
+                    { text: 'nginx proxy manager 설치', link: '/home-network/nginx-proxy-manager' },
+                    { text: 'portainer 설치', link: '/home-network/portainer' },
                 ],
                 collapsed: true
             },
