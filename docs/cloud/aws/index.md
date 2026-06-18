@@ -14,4 +14,6 @@
 
 [Convertible Rereserved Instance](/cloud/aws/solution-architect-associate/convertible-reserved-ec2)
 
+[AWS OpenSearch Service 검색 엔진 도입 검토](/cloud/aws/opensearch-search-index-design)
+
 [EC2 Spot Fleet GitLab Runner 구성](/cloud/aws/gitlab-runner-spot-fleet)

@@ -64,6 +64,7 @@ const config = defineConfig({
                         link: '/cloud/aws/',
                         items: [
                             { text: 'Resource', link: '/cloud/aws/resources/' },
+                            { text: 'AWS OpenSearch Service 검색 엔진 도입 검토', link: '/cloud/aws/opensearch-search-index-design' },
                             { text: 'EC2 Spot Fleet GitLab Runner 구성', link: '/cloud/aws/gitlab-runner-spot-fleet' }
                         ]
                     }
