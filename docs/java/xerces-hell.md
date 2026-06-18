@@ -1,4 +1,4 @@
-# Xerces Hell 탈출기
+# 자바 XML 파서 의존성 충돌로 인한 Xerces Hell 극복 및 해결법
 
 JAX
 XML

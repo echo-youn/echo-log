@@ -1,4 +1,4 @@
-# Nginx proxy manager 설치기
+# Nginx Proxy Manager 도입 및 역방향 프록시 구성기
 
 집에 있는 라즈베리파이로 홈 네트워크를 구성해 사용하고 있는데 reverse proxy로 이미 nginx와 certbot 등을 사용해 호스팅하고 있었다
 

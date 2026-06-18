@@ -1,4 +1,4 @@
-# Ansible Installation
+# 리눅스 및 macOS 환경에 앤서블(Ansible) 설치하는 법
 
 개발환경 배포 자동화를 위해 Ansible 도입을 결정했다.
 

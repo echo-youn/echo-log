@@ -1,4 +1,4 @@
-## Functional (SAM) interface
+# 코틀린 함수형 인터페이스(SAM) 변환 및 자바 상호 운용할 때 유의사항
 
 하나의 추상메서드만 있는 인터페이스를 `Functional interface` 또는 `Single Abstract Method(SAM) Interface` 라고 한다.
 

@@ -1,4 +1,4 @@
-# DSL
+# 코틀린 타입 안전한 빌더로 가독성 높은 DSL 설계하는 법
 
 영역 특화 언어(Domain Specific Language)를 사용해 코틀린다운 API를 설계하는 방법에 대해 소개한다.
 

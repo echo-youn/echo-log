@@ -1,4 +1,4 @@
-# JVM 25 Compact Object Headers
+# JVM에서 객체 헤더 크기를 획기적으로 줄여주는 Compact Object Headers 도입기
 
 JVM 객체는 필드 값만 들고 있지 않다. HotSpot JVM의 일반 객체는 보통 다음 영역으로 구성된다.
 

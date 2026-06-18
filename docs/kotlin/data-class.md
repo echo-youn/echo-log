@@ -1,4 +1,4 @@
-# Data class
+# 코틀린 data class의 숨겨진 기능과 유용하게 활용하는 법
 
 우선 자바 플랫폼에서는 클래스가 `equals`, `hashCode`, `toString` 등의 메소드들을 구현해야한다.
 

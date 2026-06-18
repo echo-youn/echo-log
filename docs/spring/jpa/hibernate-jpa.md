@@ -1,4 +1,4 @@
-# hibernate
+# 스프링 데이터 JPA 환경에서 하이버네이트(Hibernate) 2차 캐시 적용하는 법
 
 - Spring 3.2.18 > JVM 1.5 최적화 (1.8 일부 지원)
 - hibernate 3.6.10.Final

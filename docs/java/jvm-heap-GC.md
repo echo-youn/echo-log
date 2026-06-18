@@ -1,4 +1,4 @@
-# JVM Heap AND GC
+# JVM 힙(Heap) 메모리 구조와 가비지 컬렉션(GC) 동작 원리 쉽게 이해하는 법
 
 
 

@@ -1,4 +1,4 @@
-# Node exporter 설치
+# Node Exporter 설치 및 시스템 메트릭 수집하는 법
 
 필요
 - docker

@@ -1,4 +1,4 @@
-# Inventory
+# 앤서블(Ansible) 관리를 위한 호스트 인벤토리(Inventory) 설정법
 
 `Ansible`은 패키지 설치된 `컨트롤 노드`와 `매니지드 노드`가 있다.
 

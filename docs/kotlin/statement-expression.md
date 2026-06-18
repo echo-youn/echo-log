@@ -1,4 +1,4 @@
-# Statement & Expression
+# 코틀린에서 Statement와 Expression 구분할 때 알아야 할 점
 
 코틀린을 접하고보니 자바에서는 문(Statement)로 쓰이는 것들이 코틀린에서는 식(Expression)으로 사용할 수 있는 문법들이 있다.
 

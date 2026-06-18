@@ -1,4 +1,4 @@
-# Ansible Playbook & Modules
+# 앤서블(Ansible) 플레이북과 핵심 모듈 활용하여 배포하는 법
 
 ## Playbook
  

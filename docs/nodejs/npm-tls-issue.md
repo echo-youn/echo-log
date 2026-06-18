@@ -1,4 +1,4 @@
-# npm tls issue
+# 사내 보안망 환경에서 npm install 시 발생하는 TLS/SSL 인증서 오류 해결법
 
 npm 사용 중 `@confluentinc/kafka-javascript` 의존성을 추가해야할 일이 있었다.
 

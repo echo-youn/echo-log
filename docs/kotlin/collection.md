@@ -1,4 +1,4 @@
-# Collection
+# 코틀린 불변/가변 컬렉션 구분하고 안전하게 조작하는 법
 
 ## Mutable Collection
 

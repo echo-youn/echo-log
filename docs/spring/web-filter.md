@@ -1,4 +1,4 @@
-# Web Filter
+# 스프링 컨텍스트 외부에서 요청을 제어하는 웹 필터(Web Filter) 활용하는 법
 서블릿과 웹서버 사이에 있는 서블릿 컨테이너가 Servlet`(많은 경우 Dispatcher Servlet)` 실행 전, 후에 어떤 작업을 하고자 할때 사용할 수 있다.
 헷갈릴 수 있는 컴포넌트로 `Interceptor(Handler Interceptor)`가 있다.
 이는 `HandlerMapping`이 끝난 후 해당 `Servlet`에 접근할때 어떤 작업을 할때 사용하는 것이다.

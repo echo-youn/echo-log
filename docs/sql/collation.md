@@ -1,4 +1,4 @@
-# Collation
+# MySQL Collation 설정 및 변경할 때 주의할 점
 
 Collation이란, 문자셋을 어떻게 정렬할지 결정하는 알고리즘이다.
 

@@ -1,4 +1,4 @@
-# Handler Interceptor
+# 스프링 인터셉터(HandlerInterceptor)로 공통 비즈니스 로직 가로채는 법
 `Handler Interceptor`는 `HandlerMapping`이 끝난 후 해당 `Servlet`에 접근할때 어떤 작업을 할때 사용하는 것이다.
 
 헷갈릴 수 있는 컴포넌트로 `Filter`가 있다.

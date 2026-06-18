@@ -1,4 +1,4 @@
-# EC2 Spot Fleet GitLab Runner 구성
+# AWS EC2 Spot Fleet으로 GitLab Runner 저렴하게 구축하는 법
 
 EC2 Launch Template과 Spot Fleet으로 GitLab Runner를 운영할 때 필요한 설정 메모입니다.
 

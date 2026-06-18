@@ -1,4 +1,4 @@
-# Servlet
+# 스프링 DispatcherServlet의 동작 과정과 서블릿 기반 요청 처리하는 법
 자바 웹 어플리케이션을 구성하는 자바 프로그램들을 `Servlet`이라 부릅니다.
 `Spring Web MVC` 문서의 첫 문장이 바로 다음과 같습니다.
 `이 문서(Spring Web MVC)는 Servlet API와 Servlet Container에 배포되는 Servlet-stack 웹 어플리케이션을 위한 문서입니다.`

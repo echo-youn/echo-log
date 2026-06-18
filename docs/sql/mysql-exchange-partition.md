@@ -1,4 +1,4 @@
-# Exchange Partition
+# MySQL Exchange Partition으로 대용량 테이블 관리하는 법
 
 Need create, drop grant!!
 In addition to the ALTER, INSERT, and CREATE privileges usually required for ALTER TABLE statements, you must have the DROP privilege to perform ALTER TABLE ... EXCHANGE PARTITION.

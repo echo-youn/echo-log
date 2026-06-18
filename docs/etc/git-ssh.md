@@ -1,4 +1,4 @@
-# Github SSH 키
+# GitHub SSH 키 생성하고 여러 계정 등록하여 연동하는 법
 
 Github을 git repository로 사용할때 `ssh` 방식으로 사용하는 법을 공유합니다.
 

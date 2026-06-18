@@ -1,4 +1,4 @@
-# 연습용 playbook
+# 서버 프로비저닝 자동화를 위한 앤서블(Ansible) 플레이북 작성 실습기
 
 ## Docker compose
 

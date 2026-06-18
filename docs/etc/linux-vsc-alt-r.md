@@ -1,4 +1,4 @@
-# VSC ALT-R situation on ubuntu
+# 우분투 한영 전환 시 비주얼 스튜디오 코드(VS Code) 단축키 충돌 해결법
 
 우분투에서 Visual studio code를 사용하던 중 `한/영`키의 역할을 해주는 `Alt-R`키가 메뉴바의 포커스 때문에 사용할 수 없는 상황을 맞딱뜨렸다. 
 애꿎은 `settings.json`의 `"window.customMenuBarAltFocus": false` 설정과 `keybindings.json`의 설정을 괴롭혔지만 해결되지 못했다. 아마 우분투의 설정(native)와 vsc의 충돌로 이슈가 생긴것으로 보인다.

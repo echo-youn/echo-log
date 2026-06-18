@@ -1,4 +1,4 @@
-# Null safety
+# 코틀린 Null Safety 메커니즘을 이해하고 예방하는 법
 
 코틀린에는 NPE(NullPointerException)를 피하는 것을 돕는 타입이 있다. 바로 Nullable Type인데, 컴파일 단계에서 nullable한 상황에 대해 대응 할 수 있도록 해준다.
 

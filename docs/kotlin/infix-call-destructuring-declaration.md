@@ -1,4 +1,4 @@
-# infix call & destructuring declaration
+# 코틀린 중위 호출(infix)과 구조 분해 선언 활용하는 법
 
 ## 중위 호출
 

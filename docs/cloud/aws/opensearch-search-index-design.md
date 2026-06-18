@@ -1,4 +1,4 @@
-# AWS OpenSearch Service 검색 엔진 도입 검토
+# AWS OpenSearch Service 검색 엔진 도입 및 인덱스 설계기
 
 AWS OpenSearch Service를 검색 엔진으로 도입할 때 검토한 용어, 클러스터 구성, 인덱스 설계, analyzer, 인덱싱 흐름, 애플리케이션 연동 방식에 대한 메모다.
 

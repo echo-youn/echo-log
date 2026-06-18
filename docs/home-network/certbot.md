@@ -1,4 +1,4 @@
-# Certbot
+# Certbot으로 무료 SSL 인증서 발급 및 자동 갱신하는 법
 
 SSL 인증서 등록을 위해 Certbot을 사용해 Lets encrypt 인증서 발급받기.
 

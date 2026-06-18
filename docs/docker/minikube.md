@@ -1,4 +1,4 @@
-# 라즈베리파이에 minikube 설치
+# 라즈베리파이에 쿠버네티스 minikube 설치 및 구동하는 법
 
 
 1. docker 설치 

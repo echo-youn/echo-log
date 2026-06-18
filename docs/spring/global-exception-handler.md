@@ -1,4 +1,4 @@
-# Global Exception Handler
+# 스프링 부트에서 GlobalExceptionHandler로 예외 통합 처리하는 법
 
 스프링 부트에서 컨트롤러에서 발생하는 모든 예외를 처리해주는 AOP이다.
 
