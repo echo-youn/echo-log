@@ -53,37 +53,56 @@ Spot 전용으로 구성합니다.
 
 ```bash
 #!/bin/bash
-set -euo pipefail
 
 echo "==================== [Start Setup] ===================="
 
-echo "1. Installing Docker..."
+echo "1. Installing Docker & ECR Credential Helper..."
 sudo yum update -y
-sudo yum install -y docker
+sudo yum install -y docker amazon-ecr-credential-helper
 sudo service docker start
 sudo usermod -a -G docker ec2-user
 
-DOCKER_CONFIG="/usr/local/lib/docker"
-COMPOSE_VERSION="<DOCKER_COMPOSE_VERSION>"
+echo "1.5 Configuring ECR Credential Helper for Host..."
+# 1) 호스트의 root 계정 설정
+sudo mkdir -p /root/.docker
+cat << 'EOF' | sudo tee /root/.docker/config.json > /dev/null
+{
+  "credHelpers": {
+    "public.ecr.aws": "ecr-login",
+    "<AWS_ACCOUNT_ID>.dkr.ecr.<AWS_REGION>.amazonaws.com": "ecr-login"
+  }
+}
+EOF
 
-echo "DOCKER_CONFIG ${DOCKER_CONFIG}"
-sudo mkdir -p "${DOCKER_CONFIG}/cli-plugins"
-sudo curl -SL "https://github.com/docker/compose/releases/download/${COMPOSE_VERSION}/docker-compose-linux-x86_64" \
-  -o "${DOCKER_CONFIG}/cli-plugins/docker-compose"
-sudo chmod +x "${DOCKER_CONFIG}/cli-plugins/docker-compose"
+# 2) 호스트의 ec2-user 계정 설정
+sudo mkdir -p /home/ec2-user/.docker
+sudo cp /root/.docker/config.json /home/ec2-user/.docker/config.json
+sudo chown -R ec2-user:ec2-user /home/ec2-user/.docker
+
+# 3) [중요] GitLab Runner 컨테이너 내부가 참조할 독립적인 docker-config 디렉토리 생성
+# Runner 컨테이너 내부의 /root/.docker/config.json 으로 마운트될 예정입니다.
+sudo mkdir -p /home/ec2-user/gitlab-runner-docker-config
+sudo cp /root/.docker/config.json /home/ec2-user/gitlab-runner-docker-config/config.json
+sudo chown -R ec2-user:ec2-user /home/ec2-user/gitlab-runner-docker-config
+
+DOCKER_CONFIG="/usr/local/lib/docker"
+echo "DOCKER_CONFIG $DOCKER_CONFIG"
+sudo mkdir -p $DOCKER_CONFIG/cli-plugins
+sudo curl -SL https://github.com/docker/compose/releases/download/v5.1.2/docker-compose-linux-x86_64 -o $DOCKER_CONFIG/cli-plugins/docker-compose
+sudo chmod +x /usr/local/lib/docker/cli-plugins/docker-compose
 
 echo "2. Creating gitlab-runner directories..."
 TARGET_DIR="/home/ec2-user/gitlab-runner"
-mkdir -p "${TARGET_DIR}"
+mkdir -p "$TARGET_DIR"
 
+# 3. compose.yml 파일 생성
 echo "3. Generating compose.yml..."
-cat << 'EOF' > "${TARGET_DIR}/compose.yml"
+cat << 'EOF' > "$TARGET_DIR/compose.yml"
 version: '3.8'
-
 services:
-  gitlab-runner:
+  gitlab-runner-compose:
     image: gitlab/gitlab-runner:v18.9.0
-    container_name: gitlab-runner
+    container_name: gitlab-runner-compose
     restart: always
     privileged: true
     stop_signal: SIGQUIT
@@ -97,6 +116,8 @@ services:
       - /home/ec2-user/gitlab-runner:/etc/gitlab-runner
       - /var/run/docker.sock:/var/run/docker.sock
       - gitlab-runner-home:/home/gitlab-runner
+      - /usr/bin/docker-credential-ecr-login:/usr/bin/docker-credential-ecr-login
+      - /home/ec2-user/gitlab-runner-docker-config:/root/.docker
     logging:
       driver: json-file
       options:
@@ -107,8 +128,9 @@ volumes:
   gitlab-runner-home:
 EOF
 
+# 4. config.toml 파일 생성
 echo "4. Generating config.toml..."
-cat << 'EOF' > "${TARGET_DIR}/config.toml"
+cat << 'EOF' > "$TARGET_DIR/config.toml"
 concurrent = 5
 check_interval = 0
 connection_max_age = "15m0s"
@@ -120,14 +142,13 @@ shutdown_timeout = 0
 [[runners]]
   name = "gitlab-runner-__HOSTNAME__"
   url = "<GITLAB_URL>"
-  id = 0
+  id = <GITLAB_RUNNER_ID>
   token = "<GITLAB_RUNNER_TOKEN>"
-  token_obtained_at = 1970-01-01T00:00:00Z
+  token_obtained_at = <GITLAB_RUNNER_TOKEN_OBTAINED_AT>
   token_expires_at = 0001-01-01T00:00:00Z
   executor = "docker"
-  concurrent=4
-  # Private registry 인증이 필요하면 실제 값은 Secrets Manager/SSM 등으로 주입한다.
-  # environment = ["DOCKER_AUTH_CONFIG={\"auths\":{\"<PRIVATE_REGISTRY>\":{\"auth\":\"<BASE64_AUTH>\"}}}"]
+  request_concurrency = 4
+  environment = ["DOCKER_AUTH_CONFIG={\"auths\":{\"<PRIVATE_REGISTRY_HOST>\":{\"auth\":\"<PRIVATE_REGISTRY_AUTH_BASE64>\"}},\"credHelpers\":{\"<AWS_ACCOUNT_ID>.dkr.ecr.<AWS_REGION>.amazonaws.com\":\"ecr-login\",\"public.ecr.aws\":\"ecr-login\"}}"]
 
   [runners.cache]
     MaxUploadedArchiveSize = 0
@@ -137,23 +158,26 @@ shutdown_timeout = 0
 
   [runners.docker]
     tls_verify = false
-    image = "<PRIVATE_REGISTRY>/<NAMESPACE>/docker-dind:29.4.0"
+    image = "<PRIVATE_REGISTRY_HOST>/<NAMESPACE>/docker-dind:29.4.0"
     pull_policy = "if-not-present"
     privileged = true
     disable_entrypoint_overwrite = false
     oom_kill_disable = false
     disable_cache = false
-    volumes = ["/cache", "/certs/client", "/var/run/docker.sock:/var/run/docker.sock"]
+    volumes = ["/cache", "/certs/client", "/var/run/docker.sock:/var/run/docker.sock", "/usr/bin/docker-credential-ecr-login:/usr/bin/docker-credential-ecr-login"]
     shm_size = 0
     network_mtu = 0
 EOF
 
-sed -i "s/__HOSTNAME__/${HOSTNAME}/g" "${TARGET_DIR}/config.toml"
+# 4.1. 플레이스홀더 치환
+sed -i "s/__HOSTNAME__/${HOSTNAME}/g" "$TARGET_DIR/config.toml"
 
-sudo chown -R ec2-user:ec2-user "${TARGET_DIR}"
+# 5. 생성한 파일들의 소유권을 ec2-user로 변경
+sudo chown -R ec2-user:ec2-user "$TARGET_DIR"
 
+# 6. Docker Compose 실행
 echo "5. Launching GitLab Runner container..."
-cd "${TARGET_DIR}"
+cd "$TARGET_DIR"
 sudo docker compose up -d
 
 echo "==================== [Setup Finished] ===================="
@@ -252,4 +276,3 @@ Fleet이 사용할 수 있는 AZ를 넉넉하게 선택합니다. 선택 가능�
 - ECR image push가 필요하면 upload, put image 권한을 추가합니다.
 - Secrets Manager 또는 SSM Parameter Store에서 값을 읽는다면 필요한 secret/parameter ARN만 허용합니다.
 - CloudWatch Logs, S3 cache, KMS 등을 사용한다면 리소스 단위로 권한을 제한합니다.
-
