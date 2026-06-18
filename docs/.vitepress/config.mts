@@ -153,6 +153,7 @@ const config = defineConfig({
                     // { text: 'Index', link: '/java/' },
                     { text: 'Xerces 지옥 벗어나기', link: '/java/xerces-hell' },
                     { text: 'Jvm Heap & GC', link: '/java/jvm-heap-GC' },
+                    { text: 'JVM 25 Compact Object Headers', link: '/java/jvm-compact-object-headers' },
                     { text: '필드 동적으로 제외시키기', link: '/java/field-exclude' },
                     { text: '자바 의존성 로컬 캐시 비우기', link: '/java/maven-gradle-cache' }
                 ],
