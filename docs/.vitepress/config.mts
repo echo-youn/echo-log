@@ -130,6 +130,7 @@ const config = defineConfig({
                     { text: 'SSMS 엑셀 태스킹 오류', link: '/etc/ssms-tasking' },
                     { text: 'git branch pager 이슈', link: '/etc/git-branch-pager' },
                     { text: '우분투 한/영키 비주얼스튜디오 버그', link: '/etc/linux-vsc-alt-r' },
+                    { text: 'VPN 환경에서 WSL MTU 문제 해결하기', link: '/etc/wsl-vpn-mtu' },
                     { text: 'DBeaver 힙 메모리 부족', link: '/etc/dbeaver-heap' },
                     { text: 'Minio 도입기', link: '/etc/minio' },
                     { text: 'Certbot으로 인증서 적용 및 자동갱신 등록', link: '/etc/certbot' },
