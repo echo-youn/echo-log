@@ -4,6 +4,9 @@ import { defineConfig, HeadConfig, MarkdownOptions } from 'vitepress'
  * This is for base url.
  */
 const GITHUB_BASE_REPOSITORY_NAME = '/'
+const SITE_URL = 'https://blog.echo-youn.com'
+const SITE_TITLE = 'Echo Youn'
+const SITE_DESCRIPTION = '개발, 운영, 인프라, Java, Spring, Kotlin 메모를 정리한 기술 블로그'
 const LOGO_PATH = 'https://user-images.githubusercontent.com/39899731/201515448-b438b045-21ba-4028-8915-e2d7a9706d0e.png'
 
 // https://vitepress.dev/reference/site-config#markdown
@@ -14,8 +17,19 @@ const markdownOptions: MarkdownOptions = {
     },
 }
 
+const getCanonicalPath = (page: string) => page
+    .replace(/(^|\/)index\.md$/, '$1')
+    .replace(/\.md$/, '')
+
 const headConfig: HeadConfig[] = [
     ['link', { rel: 'icon', href: LOGO_PATH }], // <link rel="icon" href="LOGO_PATH" />
+    ['meta', { name: 'author', content: 'Echo Youn' }],
+    ['meta', { name: 'robots', content: 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1' }],
+    ['meta', { property: 'og:site_name', content: SITE_TITLE }],
+    ['meta', { property: 'og:type', content: 'website' }],
+    ['meta', { property: 'og:image', content: LOGO_PATH }],
+    ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
+    ['meta', { name: 'twitter:image', content: LOGO_PATH }],
     ['script', { src: 'https://www.googletagmanager.com/gtag/js?id=G-SCG97TK6W1', async: 'true' }],
     ['script', {}, `window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -27,12 +41,30 @@ const headConfig: HeadConfig[] = [
 
 const config = defineConfig({
     lang: 'ko-KR',
-    title: 'Echo Youn',
-    description: `Echo's extra-ordinary journey`,
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
     head: headConfig,
     base: GITHUB_BASE_REPOSITORY_NAME,
     markdown: markdownOptions,
     appearance: 'dark',
+    sitemap: {
+        hostname: SITE_URL,
+    },
+    transformHead(context) {
+        const canonicalUrl = new URL(getCanonicalPath(context.page), SITE_URL).href
+        const pageTitle = context.pageData.title || SITE_TITLE
+        const pageDescription = context.pageData.description || SITE_DESCRIPTION
+
+        return [
+            ['link', { rel: 'canonical', href: canonicalUrl }],
+            ['meta', { property: 'og:url', content: canonicalUrl }],
+            ['meta', { property: 'og:title', content: pageTitle }],
+            ['meta', { property: 'og:description', content: pageDescription }],
+            ['meta', { name: 'description', content: pageDescription }],
+            ['meta', { name: 'twitter:title', content: pageTitle }],
+            ['meta', { name: 'twitter:description', content: pageDescription }],
+        ]
+    },
     themeConfig: {
         sidebar: [
             {
